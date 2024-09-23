@@ -13,7 +13,7 @@
     "bcrypt": "^5.1.1",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
-    "totp-generator": "^1.0.0",
+    "totp-generator": "^0.0.14",
     "uuid": "^10.0.0"
   }
 }

@@ -17,15 +17,22 @@ module.exports = {
     },
     renderPage: function(filename, data, req, res) {
         logger.info("RenderPage", "Rendering page", {filename:filename,data:data});
-        fs.readFile(path.join(__dirname, "renderable", filename), (err, data) => {
-            // TODO: Render page
-            if(err) {
-                logger.error("RenderError", "Failed to render page", {filename:filename,error:err});
-                res.sendStatus(500);
-            } else {
-                res.set('Content-Type', 'text/html');
-                res.send(data);
-            }
-        });
+        try {
+            fs.readFile(path.join(__dirname, "renderable", filename), (err, pageData) => {
+                if(err) {
+                    logger.error("RenderError", "Failed to render page", {filename:filename,error:err});
+                    res.sendStatus(500);
+                } else {
+                    var finalData = pageData.toString();
+                    for(var key in data) {
+                        finalData = finalData.replaceAll(key, data[key]);
+                    }
+                    res.set('Content-Type', 'text/html');
+                    res.send(finalData);
+                }
+            });
+        } catch(e) {
+            logger.error("RenderError", "Renderer crashed", {filename:filename,error:e})
+        }
     }
 };

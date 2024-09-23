@@ -5,10 +5,7 @@ const logger = require('./logger');
 module.exports = {
     userExists: function(username) {
         if(fs.existsSync(path.join(__dirname, "users", username))) { // Check if user folder exists
-            var loginData = this.getUserData(username, "login"); // Read user login data
-            if(loginData) {
-                return !loginData.banned; // Return true if not banned
-            } else return false;
+            return true;
         }
         return false;
     },
@@ -16,11 +13,12 @@ module.exports = {
         if(!this.userExists(username)) {
             var userData = {};
             userData.banned = false;
+            userData.admin = false;
             userData.username = username;
             userData.password = passwordHash;
             userData.key = mfaKey;
             fs.mkdirSync(path.join(__dirname, "users", username));
-            this.setUserData(username, "login", userData);
+            fs.writeFileSync(path.join(__dirname, "users", username, `login.json`), JSON.stringify(userData));
             logger.info("UserCreated", `User created`, {userData:userData});
             return true;
         }
@@ -30,13 +28,14 @@ module.exports = {
     },
     getUserData: function(username, entry) {
         if(this.userExists(username)) {
-            if(fs.existsSync(path.join(__dirname, "users", `${entry}.json`))) {
-                return JSON.parse(fs.readFileSync(path.join(__dirname, "users", `${entry}.json`)));
+            if(fs.existsSync(path.join(__dirname, "users", username, `${entry}.json`))) {
+                return JSON.parse(fs.readFileSync(path.join(__dirname, "users", username, `${entry}.json`)));
             }
-
+            logger.verbose("GetUserDataFailure", "File miss", {path:path.join(__dirname, "users", username, `${entry}.json`)})
             return false;
         }
 
+        logger.verbose("GetUserDataFailure", "Directory miss", {path:path.join(__dirname, "users", username)});
         return false;
     },
     setUserData: function(username, entry, data) {

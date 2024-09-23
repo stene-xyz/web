@@ -6,6 +6,7 @@ module.exports = {
             method: req.method,
             path: req.originalUrl,
             cookies: req.cookies,
+            session: req.session,
             params: req.params,
             body: req.body
         });

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>stene.xyz</title>
+        <link rel="stylesheet" href="/styles/global.css" type="text/css">
+        <link rel="stylesheet" href="/styles/auth.css" type="text/css">
+    </head>
+    <body>
+        <h1>finish sign-up</h1>
+
+        In your preferred authenticator app, scan the below QR code:<br><br>
+
+        <div id="qrcode" style="display: inline-block; margin: auto; padding: 20px; background-color: white;"></div><br><br>
+
+        Or type in this key manually: {key}<br><br>
+        
+        <div class="auth-field">
+            <form method="post" action="/signupVerify">
+                {reason}Enter generated code to verify:<br><br>
+                <input type="text" name="key"><br>
+                <input type="submit" value="verify">
+            </form>
+        </div>
+
+        <script src="/scripts/qrcode.min.js"></script>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "otpauth://totp/stene.xyz?secret={key}");
+        </script>
+    </body>
+</html>
