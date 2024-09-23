@@ -1,0 +1,16 @@
+INDEX
+
+AUTH
+- Signup
+- User deletion
+- Integrate lowdb with getUserData and setUserData
+- Dedicated restrict_admin middleware
+
+RENDERER
+- sendRenderedPage(filename, data,  req, res)
+
+DROP
+- Implement
+
+SCRIBE
+- Implement
