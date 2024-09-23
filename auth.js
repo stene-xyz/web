@@ -13,7 +13,7 @@ module.exports = {
          */
         app.post("/auth", (req, res) => {
             if(!db.userExists(req.body.username)) {
-                renderer.renderPage("loginFail.html", {message:"Invalid username or password"}, req, res);
+                renderer.renderPage("loginFail.html", {"{message}":"Invalid username or password"}, req, res);
                 logger.info("LoginFail", `User does not exist`, {username:req.body.username});
             } else {
                 var userData = db.getUserData(req.body.username, "login");
@@ -21,7 +21,7 @@ module.exports = {
                 if(req.body.key == key) {
                     bcrypt.compare(req.body.password, userData.password, (err, result) => {
                         if(err) {
-                            renderer.renderPage("loginFail.html", {message:"Internal server error"}, req, res);
+                            renderer.renderPage("loginFail.html", {"{message}":"Internal server error"}, req, res);
                             logger.error("LoginFail", `User login error`, {username:req.body.username,error:err});
                         } else {
                             if(result) {
@@ -32,7 +32,7 @@ module.exports = {
                             } else {
                                 req.session.authenticated = false;
                                 req.session.username = "";
-                                renderer.renderPage("loginFail.html", {message:"Invalid username or password"}, req, res);
+                                renderer.renderPage("loginFail.html", {"{message}":"Invalid username or password"}, req, res);
                                 logger.info("LoginFail", `Password validation fail`, {username:req.body.username});
                             }
                         }
@@ -40,7 +40,7 @@ module.exports = {
                 } else {
                     req.session.authenticated = false;
                     req.session.username = "";
-                    renderer.renderPage("loginFail.html", {message:"Expired 2FA"}, req, res);
+                    renderer.renderPage("loginFail.html", {"{message}":"Expired 2FA"}, req, res);
                     logger.info("LoginFail", `2FA validation fail`, {username:req.body.username});
                 }
             }
@@ -54,12 +54,12 @@ module.exports = {
                 var passwordHash = bcrypt.hashSync(req.body.password, bcrypt_saltrounds);
                 var mfaKey = this.genToken();
                 if(db.createUser(req.body.username, passwordHash, mfaKey)) {
-                    renderer.renderPage("signupQR.html", {key: mfaKey}, req, res);
+                    renderer.renderPage("signupQR.html", {"{key}": mfaKey}, req, res);
                 } else {
-                    renderer.renderPage("signupFail.html", {message:"Signup failed"}, req, res);
+                    renderer.renderPage("signupFail.html", {"{message}":"Signup failed"}, req, res);
                 }
             } else {
-                renderer.renderPage("signupFail.html", {message:"Username or password blank"}, req, res);
+                renderer.renderPage("signupFail.html", {"{message}":"Username or password blank"}, req, res);
             }
         });
     },
