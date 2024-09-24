@@ -3,6 +3,10 @@ const path = require('path');
 const logger = require('./logger');
 
 module.exports = {
+    init: function() { // Create all needed storage directories if they don't exist yet
+        if(!fs.existsSync(path.join(__dirname, "users"))) fs.mkdirSync(path.join(__dirname, "users"));
+        if(!fs.existsSync(path.join(__dirname, "sites"))) fs.mkdirSync(path.join(__dirname, "sites"));
+    },
     userExists: function(username) {
         if(fs.existsSync(path.join(__dirname, "users", username))) { // Check if user folder exists
             return true;

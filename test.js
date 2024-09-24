@@ -176,5 +176,6 @@ function authTest4() { // Part 4: Wrong 2FA
 /*
  * Run those tests
  */
+db.init();
 dbTest();
 authTest();

@@ -21,6 +21,8 @@ app.use(session({
 	cookie: {}
 }));
 
+db.init();
+
 logger.info("Startup", "Initialising modules...");
 app.use(security.logHTTPRequest).use(express.static("public")); // not sure if this will only trigger on static files? will have to check when auth implemented
 app.use('/scribe/sites', express.static('sites'))
