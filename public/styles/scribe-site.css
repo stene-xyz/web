@@ -1,0 +1,22 @@
+body {
+    margin-top: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    font-family: serif;
+    background-color: white;
+    color: black;
+}
+
+.footer {
+    font-size: 0.8em;
+    color: darkgray;
+}
+
+ul {
+    max-width: 15%;
+    text-align: left;
+    border: 2px solid darkgray;
+    margin: auto;
+    padding: 20px;
+}

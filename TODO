@@ -1,16 +1,18 @@
 INDEX
 
 AUTH
-- Signup
 - User deletion
-- Integrate lowdb with getUserData and setUserData
-- Dedicated restrict_admin middleware
 
 RENDERER
-- sendRenderedPage(filename, data,  req, res)
+- Sanitization
 
 DROP
 - Implement
 
-SCRIBE
-- Implement
+UNNAMED MICROBLOGGING PLATFORM
+- Implement (/blogs/<username>/<postname>.html, same basis as scribe?)
+
+TESTING
+- Script to create test environment, import all modules, and test each function individually
+- "Fake" Express (create fake requests, handle responses to them)
+- Renderer testing

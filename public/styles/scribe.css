@@ -1,0 +1,48 @@
+
+form {
+    width: 33vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form p {
+    padding: 20px;
+    border: 2px solid #fbff00;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    font-family: serif;
+}
+
+textarea, form input {
+    width: 98%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    resize: none;
+    font-family: serif;
+    font-size: 1.2em;
+}
+
+form input {
+    font-weight: bold;
+}
+
+form button {
+    width: 100%;
+    background-color: #171717;
+    padding: 10px;
+    color: white;
+    border: 2px solid #0090c4;
+    border-radius: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2em;
+    transition-duration: 0.2s;
+}
+
+form button:hover {
+    background-color: #0090c4;
+}

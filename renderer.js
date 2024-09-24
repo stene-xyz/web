@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const logger = require('./logger');
+const sanitizeHtml = require('sanitize-html');
 
 module.exports = {
     sendStaticPage: function(filename, req, res) {
@@ -25,7 +26,7 @@ module.exports = {
                 } else {
                     var finalData = pageData.toString();
                     for(var key in data) {
-                        finalData = finalData.replaceAll(key, data[key]);
+                        finalData = finalData.replaceAll(key, sanitizeHtml(data[key]));
                     }
                     res.set('Content-Type', 'text/html');
                     res.send(finalData);

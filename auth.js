@@ -97,7 +97,7 @@ module.exports = {
         if(req.session.authenticated) {
             next();
         } else {
-            renderer.sendStaticPage("login.html");
+            renderer.sendStaticPage("login.html", req, res);
         }
     },
 
@@ -109,7 +109,7 @@ module.exports = {
             } else next();
         } else {
             logger.warn("AdminPageUnauthenticated", "A unauthenticated user has attempted to access an admin-only page", {page:req.originalUrl});
-            renderer.sendStaticPage("login.html");
+            renderer.sendStaticPage("login.html", req, res);
         }
     },
 

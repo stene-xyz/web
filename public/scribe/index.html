@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>scribe</title>
+        <link rel="stylesheet" type="text/css" href="/styles/global.css">
+		<link rel="stylesheet" type="text/css" href="/styles/scribe.css">
+	</head>
+	
+	<body>
+		<h1>scribe</h1>
+        <br>
+
+		Create a site below (you must be <a href="/login.html">logged in</a>):
+		<form action="/scribe/create" method="post" enctype="application/x-www-form-urlencoded">
+			<p>
+				<input type="text" name="title" placeholder="Title" title="Please enter at least 3 alphanumeric characters." pattern="[a-zA-Z0-9 ]{3,}" required><br><br>
+				<textarea name="body" rows="20" placeholder="Website content" required></textarea>
+				<br><br>
+				Supports Markdown.
+			</p>
+			
+			<button type="submit">Submit</button>
+		</form>
+		<br><br>
+		Or, take a look at <a href="/scribe/random">a random site</a>
+	</body>
+</html>

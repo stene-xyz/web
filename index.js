@@ -8,6 +8,7 @@ logger.info("Startup", "Loading first-party modules...");
 const auth = require('./auth');
 const renderer = require('./renderer');
 const security = require('./security');
+const scribe = require('./scribe');
 
 logger.info("Startup", "Initialising Express...");
 const app = express();
@@ -23,7 +24,9 @@ app.use(session({
 
 logger.info("Startup", "Initialising modules...");
 app.use(security.logHTTPRequest).use(express.static("public")); // not sure if this will only trigger on static files? will have to check when auth implemented
+app.use('/scribe/sites', express.static('sites'))
 auth.init(app);
+scribe.init(app);
 
 app.listen(port, () => {
     logger.info("Startup", "Listening", {port:port});
