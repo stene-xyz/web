@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stene.xyz</title>
+    <link href="/styles/global.css" rel="stylesheet" type="text/css">
+  </head>
+  <body style="overflow: scroll">
+    <div class="content animate-opacity">
+      <h1>stene.xyz</h1>
+      <h2 class="purple" id="tagline">TCL Flip 2 Jailbreak (KEFH Firmware Version)</h2>
+      <br><br><hr><br><br>
+
+      <h2>Thanks to neutronscott</h2>
+      For finding a method to install apps on this phone, and providing a <a href="https://github.com/neutronscott/flip2">script</a> with information needed to patch the bootloader.<br>
+      Without his work, I wouldn't have been able to figure this out at all.
+      <br><br>
+
+      <h2>Guide (This is probably what you're here for)</h2>
+      <ol style="max-width: 50vw;text-align:left;margin-left:auto;margin-right:auto;">
+        <b class="purple">Part 1: Preparation</b>
+        <li>Download <a href="https://developer.android.com/tools/releases/platform-tools">platform-tools</a> - extract this to it's own folder</li>
+        <li>Download <a href="https://drive.proton.me/urls/A0H982DKTC#Qu8iDCOdW2bK">KEFH super.img</a> - needed if you're on KEKA. Put this in the platform-tools folder</li>
+        <li>Download <a href="/flip2/jailbreak.zip">jailbreak.zip</a> - extract this into the platform-tools folder</li>
+        <br>
+
+        <b class="purple">Part 2: Unlocking Device</b>
+        <li>Ensure your device is plugged into the computer, and run autobooter.exe</li>
+        <li>While the device is still connected, remove and re-insert the battery</li>
+        <li>Autobooter should respond and send the device into FASTBOOT mode</li>
+        <li>Unlock the device by running "fastboot flashing unlock" in your platform-tools directory</li>
+        <br>
+
+        <b class="purple">Part 3: Jailbreak</b>
+        <li>Flash my patched boot image by running "fastboot flash boot boot-stenexyz.img"</li>
+        <li>Flash the super.img by running "fastboot flash super super.img" - this will take up to an hour. It will look frozen at 40%. Leave it be.</li>
+        <li>Flash vbmeta with "fastboot flash vbmeta --disable-verity --disable-verification vbmeta</li>
+        <li>Flash vbmeta_system with "fastboot flash vbmeta_system --disable-verity --disable-verification vbmeta_system</li>
+        <li>Flash vbmeta_vendor with "fastboot flash vbmeta_vendor --disable-verity --disable-verification vbmeta_vendor</li>
+        <li>Reboot the phone by running "fastboot reboot"</li>
+        <li>Give the phone a minute or two to boot - if it doesn't, scroll down to Unbrick Guide</li>
+        <li>On the phone's home menu, type "*#*#217703#*#*"</li>
+        <li>In the list, you should find Magisk - if it's missing, reboot and look again</li>
+        <li>Open Magisk and allow it to install, then reboot again</li>
+        <li>Follow the previous instructions to re-open Magisk and allow it to patch the ROM</li>
+        <li>It will complain about failing when you open the app from now on - ignore this</li>
+        <li>Now, on the phone's home screen, run "*#*#33284#*#* to enable ADB</li>
+      </ol>
+      <b class="purple">Congratulations, you now have an unlocked device!</b><br>
+      You can now follow any guide on getting the device set up (vMouse, custom launchers, etc...)
+      <br><br>
+
+      <h2>Unbrick Guide (When things go wrong)</h2>
+      <ol style="max-width: 50vw;text-align:left;margin-left:auto;margin-right:auto;">
+        <li>Complete all of "Preparation" and "Unlocking Device"</li>
+        <li>Download <a href="/flip2/KEKA-Stock-Boot.bin">KEKA-Stock-Boot.bin</a></li>
+        <li>Flash the stock KEKA boot image by running "fastboot flash boot KEKA-Stock-Boot.bin"</li>
+        <li>The phone should reboot successfully. If not, you have mismatched versions of *something* installed.</li>
+      </ol>
+      <br><br>
+
+      <h2>Other Useful Files</h2>
+      <a href="/flip2/recovery-stenexyz.img">recovery-stenexyz.img</a> - Patched recovery image that enables ADB (GUI broken, use at own risk)<br>
+      <a href="/flip2/scatter.txt">Partition Scatter File</a> - Untested, pulled from <b>an older OTA update</b>!<br>
+      <a href="https://drive.proton.me/urls/A0H982DKTC#Qu8iDCOdW2bK">super.img</a> - Use to restore if, like me, you accidentally installed a kosher ROM while trying to unbrick. Sadly apps4flip seems to gatekeep this file to prevent people from going back to the full ROM.<br>
+      <a href="/flip2/pdfs/FLIP2.pdf">TCL Flip 2 Guide</a> - OG source lost, will update with credit if I come across again - Mirrored as .pdf here as obscure Android drive links seem to just disappear<br>
+      <a href="/flip2/pdfs/FLIPGO.pdf">TCL Flip Go Guide</a> - OG source lost, will update with credit if I come across again - Mirrored as .pdf here as obscure Android drive links seem to just disappear<br>
+      <br><br>
+
+      <h2>Roll-Your-Own Patched Boot Image</h2>
+      This process is remarkably simple. You'll need <a href="/flip2/AIK.zip">Android Image Kitchen</a> and a stock boot image for the version you're patching for.
+      <br>
+      <ol style="max-width: 50vw;text-align:left;margin-left:auto;margin-right:auto;">
+        <li>Unzip AIK</li>
+        <li>Patch your boot.img with your favorite Magisk installer</li>
+        <li>Drag your half-patched boot image onto "unpackimg.bat"</li>
+        <li>In "ramdisk/overlay.d", put this <a href="/flip2/init.custom.rc">initrc script</a></li>
+        <li>Run the "repackimg.bat" script with no arguments. Out should pop "image-new.img"</li>
+      </ol>
+      <b class="purple">Congratulations, you now have a patched boot image!</b><br>
+      This file will be smaller than the stock boot image. This is fine.<br>
+      If it doesn't boot, reflash stock and try again. You may have luck with a different image kitchen.
+      <br><br>
+
+      <h2>My Notes</h2>
+      <b class="purple">Below are all the notes I took while figuring out how to do this. Anything in purple has been added while editing.</b><br><br>
+
+      <b>app list</b><br>
+      *#*#217703#*#*<br>
+      <br>
+      <b>patched recovery</b><br>
+      i have been able to successfully patch stock recovery with carliv. gui doesn't work but disabling debuggable build checks enables adb<br>
+      <b class="purple">For a while I was convinced that mounting the system partition would let me manually edit build.prop to remove this check.<br>
+      I don't even know if the endurance property is even in build.prop. This wound up not being the play, but still proved useful.</b><br>
+      <br>
+      <b>boot.img Patch</b><br>
+      neutronscott script for creating boot file - https://github.com/neutronscott/flip2/blob/main/create-boot<br>
+      needs ramdisk from OTA update, how to get latest? <b class="purple">This wasn't true. There's a ramdisk in boot.img. I just don't super understand Android.</b><br>
+      looks like there is ramdisk in boot.img - could probably patch there but will need to try on linux <b class="purple">See above. Linux wasn't needed due to many nice 
+      image kitchens being available. This is good, because I was too lazy to boot into my Mint partition.</b><br>
+      carliv image kitchen can unpack the boot.img but repacks badly <b class="purple">This is true. Carliv results in a brick when it repacks boot.img.</b><br>
+      maybe lpunpack super.img to get system.img, then patch build.prop? <b class="purple">Again with build.prop. This isn't needed. neutronscott's method is cleaner.</b><br>
+      AIK can successfully patch boot.img to reset endurance prop!!!! magisk not working however <b class="purple">I have no fucking clue what Magisk's problem is but it works just fine for root and mrepo works for packages.</b><br>
+      <br>
+      <b>installing apps</b><br>
+      installing apps needs ro.vendor.tct.endurance to be reset<br>
+      <br><br>
+
+      <h2>Article Changelog</h2>
+      <b>September 11, 2024:</b> Added (apparently important) sections about flashing super.img and disabling dm-verity.
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>stene.xyz</title>
+		<style>
+			html {
+				text-align: center;
+				background-color: #171717;
+				font-family: monospace;
+			}
+			
+			body {
+				margin: 0;
+			}
+
+			.header {
+				color: #daf71e;
+				text-shadow: 0px 4px #5f6e01;
+				font-weight: 600;
+				font-size: 5em;
+				margin: 0;
+			}
+			
+			.subheader {
+				color: #f71ed3;
+				text-shadow: 0px 2px #961289;
+				font-weight: 600;
+				font-size: 2em;
+				margin: 0;
+			}
+
+			.center {
+				position: relative;
+				height: 100vh;
+			}
+
+			.center-inner {
+				overflow: auto;
+				margin: auto;
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				height: 50%;
+			}
+
+			.content {
+				position: relative;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+			}
+
+			a, a:hover, a:active, a:visited {
+				font-size: 1.5em;
+				font-weight: 600;
+				color: #636363;
+			}
+		</style>
+	</head>
+
+	<body style="height:100vh">
+		<div class="content">
+			<h1 class="header"><i>sandbox</i></h1>
+			<canvas id="canvas" style="width:50vw;height:auto"></canvas>
+			<script src="index.js"></script>
+			<script>
+				var engine = new Engine({"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":13466576,"index.wasm":12665632},"gdnativeLibs":[]});
+				engine.startGame({canvasResizePolicy: 1});
+			</script>
+		</div>
+	</body>
+</html>
+
+

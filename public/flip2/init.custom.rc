@@ -1,0 +1,2 @@
+on post-fs-data
+  exec u:r:magisk:s0 root root -- \${MAGISKTMP}/magisk resetprop -n ro.vendor.tct.endurance true
