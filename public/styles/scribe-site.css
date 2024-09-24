@@ -1,11 +1,15 @@
 body {
     margin-top: 40px;
-    margin-left: 15%;
-    margin-right: 15%;
-    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: left;
     font-family: serif;
     background-color: white;
     color: black;
+}
+
+h1 {
+    text-align: center;
 }
 
 .footer {

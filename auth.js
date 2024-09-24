@@ -62,15 +62,6 @@ module.exports = {
         }
     },
 
-    genToken: function() {
-        var result = "";
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-        for (let i = 0; i < 16; i++) {
-            result += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return result;
-    },
-
     authRoute: function(req, res) {
         if(!db.userExists(req.body.username)) {
             renderer.renderPage("loginFail.html", {"{message}":"Invalid username or password"}, req, res);
@@ -113,7 +104,11 @@ module.exports = {
     signupRoute: function(req, res) {
         if(req.body.username != "" && req.body.password != "") {
             var passwordHash = bcrypt.hashSync(req.body.password, bcrypt_saltrounds);
-            var mfaKey = this.genToken();
+            var mfaKey = "";
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+            for (let i = 0; i < 16; i++) {
+                mfaKey += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
             if(db.createUser(req.body.username, passwordHash, mfaKey)) {
                 req.session.authenticated = true;
                 req.session.username = req.body.username;

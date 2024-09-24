@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Services 2</title>
+		<link rel="stylesheet" type="text/css" href="/styles/scribe-site.css">
+	</head>
+	
+	<body>
+		<h1>Web Services 2</h1>
+		<hr><br>
+
+		<p>I've completely rewritten my web services. Here are some of the changes:</p>
+<h2>Combining of Static Site and Web Services</h2>
+<p>The static site (stene.xyz) and web services (drop.stene.xyz, scribe.stene.xyz, content.stene.xyz, etc...) have been combined into one service.</p>
+<h2>Switch to a Monolithic Design</h2>
+<p>The site as a whole has moved to a monolithic design rather than the earlier microservice design. </p>
+<h2>Authentication System</h2>
+<p>There is a new authentication system, that was previously trialed on the (experimental &amp; now gone) games.stene.xyz service. Mandatory 2-factor authentication has been added, however.</p>
+<h2>Unit Tests</h2>
+<p>There is now a testing suite for the web services. Every push is automatically run through a workflow on Github Actions to run the test suite and validate that the core components of the site work properly. I plan to expand this testing as time goes on.</p>
+<h2>Rendering Engine</h2>
+<p>There's a new rendering engine - it's super basic. You feed it a key/value store for all of the values you'd like to replace, and what you'd like to replace them with. Input is, of course, sanitized before rendering.</p>
+
+		<br><br>
+		<div class="footer">
+			Made with <a href="https://stene.xyz/scribe">stene.xyz scribe</a>
+		</div>
+	</body>
+</html>

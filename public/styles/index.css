@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    max-height:100vh;
+    overflow: hidden;
+}
+.project-showcase {
+    text-align: left;
+    max-width: 30vw;
+    width: 30vw;
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.content-pane {
+    height: 60vh;
+    min-height: 60vh;
+    max-height: 60vh;
+    overflow: scroll;
+}
+
+.animate-opacity{
+    animation:opac 0.8s
+}
+
+button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #0090c4;
+    text-shadow: -2px 2px #004158;
+    font-family: 'Share Tech Mono', monospace;
+    font-style: italic;
+    font-size: 1.1em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.purple {
+    color: #D500A5;
+    text-shadow: 0px 0px 5px;
+}
+
+@keyframes opac{from{opacity:0} to{opacity:1}}

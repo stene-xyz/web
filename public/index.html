@@ -1,10 +1,193 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>stene.xyz</title>
-        <link rel="stylesheet" href="/styles/global.css" type="text/css">
-    </head>
-    <body>
-        <h1>stene.xyz</h1>
-    </body>
+  <head>
+    <title>stene.xyz</title>
+    <link href="/styles/global.css" rel="stylesheet" type="text/css">
+    <link href="/styles/index.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="content animate-opacity">
+      <h1>stene.xyz</h1>
+      <h2 class="purple" id="tagline">a fan of noscript, are we?</h2>
+      <button onclick="switchPane('projects')">projects</button> <button onclick="blog()">blog</button> <button onclick="switchPane('contact')">contact</button> <button onclick="github()">github</button> <button onclick="resume()">resume</button> 
+      <br><hr>
+
+      <div class="content-pane animate-opacity" id="contact">
+        <h2>contact me</h2>
+        <div class="project-showcase"> 
+          <b>email</b><br><br>
+          <a href="mailto:johnny@stene.xyz">johnny@stene.xyz</a>
+        </div> 
+        <div class="project-showcase"> 
+          <b>phone</b><br><br>
+          <a href="tel:7805049202">+1 (780) 504-9202</a>
+        </div> 
+        <div class="project-showcase"> 
+            <b>twitter</b><br><br>
+            <a href="https://twitter.com/jhonnystene">jhonnystene</a>
+        </div>
+        <div class="project-showcase"> 
+            <b>discord</b><br><br>
+            johnnystene
+        </div>
+         
+      </div>
+
+      <div class="content-pane animate-opacity" id="projects">
+        <h2>project showcase</h2>
+        <button onclick="switchPane('projects-all')">view all</button><br><br>
+        <div class="project-showcase"> 
+          <b>drop</b><br>
+          48-hour file sharing<br><br>
+          <a href="">currently unavailable</a>    
+        </div> 
+        <div class="project-showcase"> 
+          <b>scribe</b><br>
+          static page generator<br><br>
+          <a href="/scribe">link</a>    
+        </div>
+        <div class="project-showcase"> 
+          <b>BSODView</b><br>
+          BSOD data viewer<br><br>
+          <a href="https://github.com/stene-xyz/BSODView/releases/">download</a> | <a href="https://github.com/stene-xyz/BSODView">source code</a>
+        </div> 
+        <div class="project-showcase"> 
+          <b>XYZDownloadManager</b><br>
+          download manager<br><br>
+          <a href="https://github.com/stene-xyz/XYZDownloadManager/releases/">download</a> | <a href="https://github.com/stene-xyz/XYZDownloadManager">source code</a>    
+        </div>
+      </div>
+      
+      <div class="content-pane animate-opacity" id="projects-all">
+        <h2>all projects</h2>
+        <button onclick="switchPane('projects')">back to showcase</button><br><br>
+        <h2 class="purple">websites</h2><br>
+    
+    <div class="project-showcase"> 
+        <b>stene.xyz</b><br>
+        you are here<br><br>
+        <a href="https://stene.xyz">link</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>bestbrowser.org</b><br>
+        internet explorer fan page<br><br>
+        <a href="http://bestbrowser.org">link</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>snowbound.xyz</b><br>
+        more personal website<br><br>
+        <a href="https://snowbound.xyz">link</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>fredrickinthe.cloud</b><br>
+        RIP Fredrick, gone but not forgotten<br><br>
+        <a href="https://fredrickinthe.cloud">link</a>    
+    </div>
+
+    <h2 class="purple">utilities</h2><br>
+    <div class="project-showcase"> 
+        <b>drop</b><br>
+        free 48-hour file sharing<br><br>
+        <a href="">currently unavailable</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>scribe</b><br>
+        you are here<br><br>
+        <a href="/scribe">link</a>    
+    </div>
+
+    <div class="project-showcase"> 
+      <b>TCL Flip 2</b><br>
+      information on jailbreaking the TCL Flip 2/Go<br><br>
+      <a href="https://stene.xyz/flip2/">link</a>
+    </div>
+
+    <div class="project-showcase"> 
+        <b>BSODView</b><br>
+        small tool for easily viewing BSOD data<br><br>
+        <a href="https://github.com/stene-xyz/BSODView/releases/">download</a> | <a href="https://github.com/stene-xyz/BSODView">source code</a>
+    </div>
+
+    <div class="project-showcase"> 
+        <b>XYZDownloadManager</b><br>
+        tiny .NET 8 download manager<br><br>
+        <a href="https://github.com/stene-xyz/XYZDownloadManager/releases/">download</a> | <a href="https://github.com/stene-xyz/XYZDownloadManager">source code</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>staples-dl</b><br>
+        tool for downloading 3D models from staples.ca<br><br>
+        <a href="https://github.com/stene-xyz/staples-dl">source code</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>ArnariaChat</b><br>
+        proximity text chat for Minecraft servers<br><br>
+        <a href="https://github.com/stene-xyz/ArnariaChat">source code</a>    
+    </div>
+    
+    <h2 class="purple">games</h2><br>
+    <div class="project-showcase"> 
+        <b>Super Stevio 66</b><br>
+        2d platformer<br><br>
+        <a href="/stevio/">link</a> | <a href="https://stenexyz.itch.io/super-stevio-66">download</a> | <a href="https://github.com/jhonnystene/SuperStevio66">source code</a>    
+    </div>
+
+    <div class="project-showcase"> 
+        <b>Nic Cage Eats Stuff</b><br>
+        ports of the legendary game<br><br>
+        <a href="https://github.com/jhonnystene/NicCageEatsStuff">link</a> | <a href="https://stenexyz.itch.io/nic-cage-eats-stuff">download</a> | <a href="https://github.com/jhonnystene/NicCageEatsStuff">source code</a>    
+    </div> 
+
+    <div class="project-showcase"> 
+        <b>sandbox</b><br>
+        calming sandbox game<br><br>
+        <a href="/sandbox/">link</a> | <a href="https://github.com/jhonnystene/sandbox">source code</a>    
+    </div>
+    
+    <h2 class="purple">memes</h2><br>
+    <div class="project-showcase"> 
+        <b>SCAM token</b><br>
+        the future of finance<br><br>
+        <a href="/scam-token/">link</a>
+    </div>
+      </div>
+    </div>
+
+    <div class="footer">
+        site version 3.0-beta | <a href="/changelog.html">changelog</a> | <a href="https://github.com/stene-xyz/web">view source code</a>
+    </div>
+    
+    <script>
+      var taglines = ["best viewed at 800x600 in internet explorer 5", "take thy butter knife, and carefully insert it between the sandwich and the VCR", "let's not beat a dead horse when we can beat a live one", "microsoft excel '97 fan page", "it has been [0] days since the last DNS issue", "if you're reading this, the web server was successfully installed", "weaponizing boredom since 2020", "i'll be happy if i can get the system working like it was when i started"]
+      document.getElementById("tagline").innerHTML = taglines[Math.floor(Math.random() * taglines.length)];
+    
+      function switchPane(id) {
+        var i;
+        var x = document.getElementsByClassName("content-pane");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(id).style.display = "block"; 
+      }
+
+      function github() {
+        document.location = "https://github.com/stene-xyz";
+      }
+
+      function blog() {
+        document.location = "/blog.html";
+      }
+      
+      function resume() {
+        document.location = "https://stene.xyz/resume/index.html";
+      }
+
+      switchPane('projects');
+    </script>
+  </body>
 </html>
