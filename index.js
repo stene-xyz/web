@@ -6,7 +6,6 @@ const session = require('express-session');
 
 logger.info("Startup", "Loading first-party modules...");
 const auth = require('./auth');
-const renderer = require('./renderer');
 const security = require('./security');
 const scribe = require('./scribe');
 
