@@ -2,7 +2,6 @@
  * Scribe 2.0
  */
 
-const auth = require("./auth");
 const logger = require("./logger");
 
 const fs = require('fs');
@@ -12,8 +11,8 @@ const marked = require('marked');
 
 module.exports = {
     init: function(app) {
-        app.post("/scribe/create", auth.restrict, (req, res) => {
-            logger.info("ScribeCreate", "User is creating new Scribe microsite", {username:req.session.username,data:req.body});
+        app.post("/scribe/create", (req, res) => {
+            logger.info("ScribeCreate", "User is creating new Scribe microsite", {data:req.body});
             fs.readFile(path.join(__dirname, "renderable", "scribe-template.html"), (err, data) => {
                 if(err) {
                     logger.error("ScribeCreateError", "Failed to create Scribe microsite", {error:err,data:req.body});
@@ -30,7 +29,7 @@ module.exports = {
                         // Write the file & redirect the user
                         if(!fs.existsSync(path.join(__dirname, "sites", `${filename}.html`))) {
                             fs.writeFileSync(path.join(__dirname, "sites", `${filename}.html`), data);
-                            logger.info("ScribeCreateSuccess", "Scribe site created", {username: req.session.username,path: path.join(__dirname, "sites", `${filename}.html`)});
+                            logger.info("ScribeCreateSuccess", "Scribe site created", {path: path.join(__dirname, "sites", `${filename}.html`)});
                             res.redirect(`/scribe/sites/${filename}.html`);
                             return;
                         }
