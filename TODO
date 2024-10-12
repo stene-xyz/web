@@ -7,6 +7,7 @@ DROP
 - Test implementation
 - Add files/ path to .gitignore
 - Create files/ folder if it does not exist
+- Migrate old static files
 
 UNNAMED MICROBLOGGING PLATFORM
 - Implement (/blogs/<username>/<postname>.html, same basis as scribe?)
