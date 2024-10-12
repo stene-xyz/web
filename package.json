@@ -18,6 +18,7 @@
     "express-session": "^1.18.0",
     "lusca": "^1.7.0",
     "marked": "^14.1.2",
+    "sanitize-filename": "^1.6.3",
     "sanitize-html": "^2.13.0",
     "totp-generator": "^0.0.14",
     "uuid": "^10.0.0"

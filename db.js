@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const logger = require('./logger');
+const sanitizePath = require('sanitize-html');
 
 module.exports = {
     init: function() { // Create all needed storage directories if they don't exist yet
@@ -8,12 +9,14 @@ module.exports = {
         if(!fs.existsSync(path.join(__dirname, "sites"))) fs.mkdirSync(path.join(__dirname, "sites"));
     },
     userExists: function(username) {
+    	username = sanitizePath(username);
         if(fs.existsSync(path.join(__dirname, "users", username))) { // Check if user folder exists
             return true;
         }
         return false;
     },
     createUser: function(username, passwordHash, mfaKey) {
+    	username = sanitizePath(username);
         if(!this.userExists(username)) {
             var userData = {};
             userData.banned = false;
@@ -31,6 +34,8 @@ module.exports = {
         return false;
     },
     getUserData: function(username, entry) {
+    	username = sanitizePath(username);
+    	entry = sanitizePath(entry);
         if(this.userExists(username)) {
             if(fs.existsSync(path.join(__dirname, "users", username, `${entry}.json`))) {
                 return JSON.parse(fs.readFileSync(path.join(__dirname, "users", username, `${entry}.json`)));
@@ -43,6 +48,8 @@ module.exports = {
         return false;
     },
     setUserData: function(username, entry, data) {
+	username = sanitizePath(username);
+	entry = sanitizePath(entry);
         try {
             if(this.userExists(username)) {
                 fs.writeFileSync(path.join(__dirname, "users", username, `${entry}.json`), JSON.stringify(data));

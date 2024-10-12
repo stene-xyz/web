@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const sanitizeHtml = require('sanitize-html');
 const marked = require('marked');
+const sanitizePath = require('sanitize-filename');
 
 module.exports = {
     init: function(app) {
@@ -24,7 +25,7 @@ module.exports = {
                     // For loop to keep repeating in the off chance we try to do two at once
                     for(var i = 0; i < 1000; i++) {
                         // A random ID gets put in front of the title to allow for duplicate titles
-                        var filename = `${Math.floor(Math.random() * 1E6)}-${req.body.title.replaceAll(" ", "-")}`;
+                        var filename = `${Math.floor(Math.random() * 1E6)}-${sanitizePath(req.body.title.replaceAll(" ", "-"))}`;
                         
                         // Write the file & redirect the user
                         if(!fs.existsSync(path.join(__dirname, "sites", `${filename}.html`))) {
