@@ -1,21 +1,31 @@
-INDEX
+TODO for 3.0 full release
+=====
 
-AUTH
-- User deletion
+Authentication:
+	- Enable deleting users
 
-DROP
-- Test implementation
-- Add files/ path to .gitignore
-- Create files/ folder if it does not exist
-- Migrate old static files
+Drop:
+	- Test implementation
+	- Add files/ path to .gitignore
+	- Create files/ folder if it does not exist
+	- Migrate old static pages
 
-UNNAMED MICROBLOGGING PLATFORM
-- Implement (/blogs/<username>/<postname>.html, same basis as scribe?)
+Tests:
+	- Fail on syntax errors in index.js
+	- Renderer: ensure generated .html is correct
+	- Renderer: ensure sanitization is taking place
+	- Drop: Test file deletion
+	- Drop: Test file upload
+	- Drop: Test file download
 
-TESTING
-- Renderer testing
-- Drop testing
+Security:
+	- IP Bans
+	- Admin panel
+	- WAF
 
-SECURITY
-- WAF
-- IP Bans
+TODO for 3.1
+=====
+Blogs:
+	- /blogs/<username>/index.html - lists of all posts
+	- /blogs/manage - Allow users to CRUD their posts
+	- /blogs/<username>/<postname> - Show user post

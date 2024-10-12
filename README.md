@@ -1,5 +1,5 @@
-# stene.xyz
-New web services infrastructure for stene.xyz
+# stene.xyz web services
+Web services infrastructure for stene.xyz
 
 ## Project Layout
 - `public` - Static files
