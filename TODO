@@ -4,10 +4,12 @@ AUTH
 - User deletion
 
 DROP
-- Implement
+- Test implementation
+- Add files/ path to .gitignore
 
 UNNAMED MICROBLOGGING PLATFORM
 - Implement (/blogs/<username>/<postname>.html, same basis as scribe?)
 
 TESTING
 - Renderer testing
+- Drop testing
