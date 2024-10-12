@@ -5,6 +5,7 @@ const autoDeleteInterval = 60000; // 1 hour
 const renderer = require("./renderer");
 const logger = require("./logger");
 const path = require("path");
+const fs = require("fs");
 
 module.exports = {
 	init: function(app) {
@@ -32,6 +33,9 @@ module.exports = {
 		app.get("/drop/uploaded", (req, res) => {
 			renderer.renderPage("dropUploadSuccess.html", {"{url}":req.session.drop_link}, req, res);
 		});
+		
+		setInterval(doFileAutodelete, autoDeleteInterval);
+		doFileAutodelete();
 	}
 };
 
@@ -49,11 +53,11 @@ function doFileAutodelete() {
 					if(err) logger.error("DropCleanupFailure", "Failed to get file creation time", {"file": file});
 					else {
 						if(Date.now() - stats.ctimeMs >= fileLife) {
-							logger.info("DropCleanup", "File has existed for too long! Deleting...", {"file": file, "ctime", stats.ctimeMs});
+							logger.info("DropCleanup", "File has existed for too long! Deleting...", {"file": file, "ctime": stats.ctimeMs});
 							fs.rmdir(filePath, {recursive: true}, (err) => {
-								if(err) logger.error("DropCleanupFailure", "Failed to delete file", {"file": file, "err", err});
+								if(err) logger.error("DropCleanupFailure", "Failed to delete file", {"file": file, "err": err});
 							});
-						} else logger.info("DropCleanup", "File has not yet reached deletion timestamp", {"file": file, "ctime", stats.ctimeMs});
+						} else logger.info("DropCleanup", "File has not yet reached deletion timestamp", {"file": file, "ctime": stats.ctimeMs});
 					}
 				});
 			});
@@ -61,5 +65,3 @@ function doFileAutodelete() {
 	});
 }
 
-setInterval(doFileAutodelete, autoDeleteInterval);
-doFileAutodelete();
