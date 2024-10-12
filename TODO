@@ -15,3 +15,7 @@ UNNAMED MICROBLOGGING PLATFORM
 TESTING
 - Renderer testing
 - Drop testing
+
+SECURITY
+- WAF
+- IP Bans
