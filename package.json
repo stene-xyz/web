@@ -11,8 +11,10 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cookie": "^1.0.1",
     "crypto": "^1.0.1",
     "express": "^4.21.0",
+    "express-rate-limit": "^7.4.1",
     "express-session": "^1.18.0",
     "marked": "^14.1.2",
     "sanitize-html": "^2.13.0",
