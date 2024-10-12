@@ -16,6 +16,7 @@
     "express": "^4.21.0",
     "express-rate-limit": "^7.4.1",
     "express-session": "^1.18.0",
+    "lusca": "^1.7.0",
     "marked": "^14.1.2",
     "sanitize-html": "^2.13.0",
     "totp-generator": "^0.0.14",

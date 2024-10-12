@@ -5,6 +5,7 @@ const express = require('express');
 const session = require('express-session');
 const crypto = require("crypto");
 const ratelimit = require("express-rate-limit");
+const csrf = require("lusca").csrf;
 
 logger.info("Startup", "Loading first-party modules...");
 const auth = require('./auth');
@@ -24,10 +25,11 @@ app.use(session({
 	resave: false,
 	cookie: {}
 }));
-app.use(ratelimit({
+app.use(ratelimit({ // Protect against DoS
 	windowMs:1000,
 	max:5
 }));
+app.use(csrf()); // Protect against CSRF
 
 logger.info("Startup", "Initialising modules...");
 const db = require('./db');
