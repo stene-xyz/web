@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stene.xyz</title>
+    <link href="/styles/global.css" rel="stylesheet" type="text/css">
+    <link href="/styles/index.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="content animate-opacity">
+      <h1>stene.xyz security info</h1>
+      <br><hr>
+
+      <div class="content-pane animate-opacity" id="projects">
+        <h2>active projects</h2>
+        <div class="project-showcase"> 
+          <b>stene.xyz 3.0</b><br>
+          you are here<br><br>
+          <button onclick="switchPane('stenexyz')">view</button>   
+        </div> 
+
+        <h2>retired projects</h2>
+        <div class="project-showcase"> 
+          <b>scribe.stene.xyz</b><br>
+          static page generator<br><br>
+          <button onclick="switchPane('scribe-classic')">view</button>    
+        </div>
+      </div>
+    
+    <div class="content-pane animate-opacity" id="stenexyz">
+	<h2>stene.xyz 3.0</h2>
+	<b class="purple">total known vulnerabilities:</b> 12<br>
+	<b class="purple">fixed:</b> 10 | <b class="purple">won't fix:</b> 2
+	<button onclick="switchPane('projects')">back</button>
+	<br><br>
+
+	Oct 11, 2024: <b>Cross-Site Request Forgery</b> - high severity - not exploited - <a href="https://github.com/stene-xyz/web/commit/d47a60b7d9943a5b5c8a37c3a96edd7ce94a319b">fix</a><br>
+	A CSRF vulnerability existed, potentially allowing for account hijacking.<br>
+	<br>
+
+	Oct 11, 2024: <b>DoS due to Missing Rate Limits</b> - medium severity - not exploited - <a href="https://github.com/stene-xyz/web/commit/7ae92e5f05c3c9008efa853e3e50b343f597493a">fix</a><br>
+	Rate limits were not in place. This allowed for a DoS by repeatedly calling endpoints that run multiple FS accesses<br>
+	<br>
+
+	Oct 11, 2024: <b class="purple">7x</b> <b>Unsanitized input into path expression</b> - high severity - not exploited - <a href="https://github.com/stene-xyz/web/commit/7c5a9fb723d3a912cd69e458a18953ae91762a6d">fix</a><br>
+	Unsanitized values were passed to several fields in paths, allowing for users to potentially read/write arbitrary files on disk.<br>
+	<br>
+
+	Oct 11, 2024: <b>Clear-Text Transmission of Sensitive Cookie</b> - medium severity - won't fix<br>
+	Session cookies can be intercepted by an attacker when sent over HTTP.<br>
+	Won't fix as it only affects test environment (prod traffic routed through HTTPS)<br>
+	<br>
+
+	Oct 11, 2024: <b>Client-Side URL Redirect</b> - low severity - won't fix<br>
+	Vulnerability exists in Nic Cage Eats Stuff game. Won't fix as this doesn't compromise anything important.<br>
+	<br>
+
+	Oct 11, 2024: <b>Vulnerable dependency</b> - low severity - not exploited - <a href="https://github.com/stene-xyz/web/commit/0f1d1634295d84652171d96b4c80a775e92a83f2">fix</a><br>
+	The "cookie" package in Node.JS had a vulnerability allowing for arbitrary data in a cookie to be set.<br>
+	<br>
+	
+    </div>
+
+    <div class="content-pane animate-opacity" id="scribe-classic">
+	<h2>scribe.stene.xyz (Scribe 1.0)</h2>
+	<b class="purple">total known vulnerabilities:</b> 2<br>
+	<b class="purple">fixed:</b> 2 | <b class="purple">won't fix:</b> 0
+	<button onclick="switchPane('projects')">back</button>
+	<br><br>
+
+	Aug 31, 2023: <b>Cross-Site Scripting</b> - medium severity - not exploited - closed-source<br>
+	The title of Scribe pages was not properly sanitized before writing to a file, allowing for script tags to be embedded.<br>
+	</br>
+
+	Aug 31, 2023: <b>DoS</b> - low severity - not exploited - closed-source<br>
+	When attempting to create a new site, the web server would loop indefinitely trying to save to a different ID. This made DoS possible by repeatedly creating many sites with the same names.<br>
+	<br>
+	
+    </div>
+      
+    <script>    
+      function switchPane(id) {
+        var i;
+        var x = document.getElementsByClassName("content-pane");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(id).style.display = "block"; 
+      }
+
+      switchPane('projects');
+    </script>
+  </body>
+</html>
