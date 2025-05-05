@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>stene.xyz</title>
-    <link href="/styles/global.css" rel="stylesheet" type="text/css">
-  </head>
-  <body style="overflow: scroll">
-    <div class="content animate-opacity">
-      <h1>stene.xyz</h1>
-      <h2 class="purple" id="tagline">TCL Flip 2 Jailbreak (QK6J Firmware Version)</h2>
-      <br><br><hr><br><br>
+	<head>
+		<title>stene.xyz</title>
+		<link href="/styles/global.css" rel="stylesheet" type="text/css">
+		<style>
+			ol {
+				max-width: 50vw
+				text-align: left; 
+				margin-left: auto; 
+				margin-right: auto;
+			}
+		</style>
+	</head>
+	<body style="overflow: scroll">
+		<div class="content animate-opacity">
+			<h1>stene.xyz</h1>
+			<h2 class="purple" id="tagline">TCL Flip 2/Flip Go Guide (QK6J Firmware Version)</h2>
+			<br><br><hr><br><br>
 
-      <h2>Special Thanks</h2>
-      <b>neutronscott:</b> For finding the method to patch boot images<br>
-      <b>Yiannis128:</b> For pointing me to the thread mentioning adbio and providing clean files for QK6J<br>
-      <b>VictorBruson:</b> For being the first to share adbio with the community as a whole
-      <br><br>
+			<h2>Special Thanks</h2>
+			<b>neutronscott:</b> For finding the method to patch boot images<br>
+			<b>Yiannis128:</b> For pointing me to the thread mentioning adbio and providing clean files for QK6J<br>
+			<b>VictorBruson:</b> For being the first to share adbio with the community as a whole
+			<br><br>
 
-      <h2>Guide (This is probably what you're here for)</h2>
-      This guide assumes you're on Linux. If not, create a bootable USB stick and do the jailbreak from there. 
+			<h2>Root + ADB</h2>
+			This guide assumes you're on Linux. If not, create a bootable USB stick and do the jailbreak from there. 
 
-      <h3>Part 1: Preparation</h3>
-      <ol style="max-width: 50vw;text-align:left;margin-left:auto;margin-right:auto;">
-	<li>Download the following files:<br>
-		<a href="https://github.com/bkerler/mtkclient">mtkclient</a><br>
-		<a href="">patched boot.img - place this in the mtkclient folder.</a> TODO: add file</li>
-	<li>Install fastboot, libusb, and fuse2 from your distro's package manager. Also make sure Python is up to date.</li>
-	<li>In the mtkclient folder, run "python3 -m pip install -r requirements.txt"<li>
-	<li>Backup your device by running "mkdir backup; sudo python3 mtk.py rl backup" - this will take a while but it is important! Copy backup files elsewhere if running from a Live USB stick.</li> 
-      </ol>
+			<h3>Part 1: Preparation</h3>
+			<ol>
+				<li>Download the following files:<br>
+					<a href="https://github.com/bkerler/mtkclient">mtkclient</a><br>
+					<a href="">patched boot.img - place this in the mtkclient folder.</a> TODO: add file</li>
+				<li>Install fastboot, libusb, and fuse2 from your distro's package manager. Also make sure Python is up to date.</li>
+				<li>In the mtkclient folder, run "python3 -m pip install -r requirements.txt"<li>
+				<li>Backup your device by running "mkdir backup; sudo python3 mtk.py rl backup" - this will take a while but it is important! Copy backup files elsewhere if running from a Live USB stick.</li> 
+			</ol>
 
-      <h3>Part 2: Jailbreaking</h3>
-      <ol style="max-width: 50vw; text-align: left; margin-left: auto; margin-right: auto;">
-	<li>Reboot the device into fastboot mode by running "sudo python3 mtk.py payload --metamode FASTBOOT"</li>
-	<li>Unlock the device for flashing with "fastboot flashing unlock" - this will erase all user data. Advanced users can run "sudo python3 mtk.py da seccfg unlock" to prevent a wipe, but I haven't tested it very much and it may cause issues.</li>
-	<li>Flash the patched boot image with "fastboot flash boot boot.img"</li>
-	<li>Reboot the device and complete initial setup (if required)</li>
-	<li>Open the app list by entering "*#*#217703#*#*" on the home screen</li>
-	<li>Launch Magisk and let it do the final setup<li>
-	<li>Allow it to reboot your device</li>
-	<li>Open Magisk again and dismiss the popup</li>
-	<li>Open the browser and click <a href="https://f-droid.org/repo/io.github.yoshi1123.adbio_4.apk">this link</a> to download adbio</li>
-	<li>Open your notifications and click the downloaded file</li>
-	<li>Allow the browser to install apps, then install adbio</li>
-	<li>Use adbio to enable ADB. TODO: in-depth</li>
-      </ol>
-     
-      <h2>Article Changelog</h2>
-      <b>May 3, 2025: Added updated instructions for most recent firmware version.
-      <b>September 11, 2024:</b> Added (apparently important) sections about flashing super.img and disabling dm-verity.
-  </body>
+			<h3>Part 2: Jailbreaking</h3>
+			<ol>
+				<li>Reboot the device into fastboot mode by running "sudo python3 mtk.py payload --metamode FASTBOOT"</li>
+				<li>Unlock the device for flashing with "fastboot flashing unlock" - this will erase all user data. Advanced users can run "sudo python3 mtk.py da seccfg unlock" to prevent a wipe, but I haven't tested it very much and it may cause issues.</li>
+				<li>Flash the patched boot image with "fastboot flash boot boot.img"</li>
+				<li>Reboot the device and complete initial setup (if required)</li>
+				<li>Open the app list by entering "*#*#217703#*#*" on the home screen</li>
+				<li>Launch Magisk and let it do the final setup<li>
+				<li>Allow it to reboot your device</li>
+				<li>Open Magisk again and dismiss the popup</li>
+				<li>Open the browser and click <a href="https://f-droid.org/repo/io.github.yoshi1123.adbio_4.apk">this link</a> to download adbio</li>
+				<li>Open your notifications and click the downloaded file</li>
+				<li>Allow the browser to install apps, then install adbio</li>
+				<li>Use adbio to enable ADB. TODO: in-depth</li>
+			</ol>
+
+			<h2>Image Patching</h2>
+			<h3>Patched boot.img</h3>
+			Instructions from <a href="https://github.com/neutronscott/flip2/blob/main/create-boot">neutronscott's script</a>
+			<ol>
+				<li>Download Magisk from <a href="https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk">here</a></li>
+				<li>Unzip Magisk with "mkdir -p magisk; cd magisk; unzip -q ../Magisk-v27.0.apk; cd .."</li>
+				<li>Make magiskboot executable with "chmod +x lib/x86_64/libmagiskboot.so"</li>
+				<li>Extract your boot.img with "mkdir -p</li>
+			</ol>
+			
+			<h3>Patched super.img (vendor, system, product partitions)</h3>
+
+			<h2>Article Changelog</h2>
+			<b>May 3, 2025: Added updated instructions for most recent firmware version.
+			<b>September 11, 2024:</b> Added (apparently important) sections about flashing super.img and disabling dm-verity.
+		</div>
+	</body>
 </html>
