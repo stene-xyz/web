@@ -149,10 +149,9 @@ unpacksuper() {
 		e2fsck -fy system.img
 		e2fsck -fy vendor.img
 		e2fsck -fy product.img
-		# TODO: figure out good sizes
-		#resize2fs system.img 0M
-		#resize2fs vendor.img 0M
-		#resize2fs product.img 0M
+		resize2fs system.img 1332M
+		resize2fs vendor.img 256M
+		resize2fs product.img 128M
 		
 		echo "Mounting partitions..."
 		mkdir system vendor product
@@ -191,14 +190,25 @@ repacksuper() {
 		VENDOR_SIZE=$(stat -c "%s" vendor.img)
 		PRODUCT_SIZE=$(stat -c "%s" product.img)
 		TOTAL_SIZE=$(python3 -c "print($SYSTEM_SIZE + $VENDOR_SIZE + $PRODUCT_SIZE)")
-		# TODO: get actual super.bin size
-		SUPER_SIZE=0
+		SUPER_SIZE=2147483648
 		
 		echo "System: $SYSTEM_SIZE, Vendor: $VENDOR_SIZE, Product: $PRODUCT_SIZE, Total: $TOTAL_SIZE"
 		echo "Fits in partition of size $SUPER_SIZE"
 		
-		# TODO: lpmake command from notes
-		#lpmake
+		echo "Packing..."
+		mkdir $WORKING_DIRECTORY/patched
+		lpmake --metadata-size 65536 --super-name super --metadata-slots 1 \
+			--device super:$SUPER_SIZE \
+			--group main:$TOTAL_SIZE \
+			--partition system:readonly:$SYSTEM_SIZE:main \
+			--partition product:readonly:$PRODUCT_SIZE:main \
+			--partition vendor:readonly:$VENDOR_SIZE:main \
+			--image system=./system.img \
+			--image vendor=./vendor.img \
+			--image product=./product.img \
+			--sparse --output $WORKING_DIRECTORY/patched/super.img
+		
+		echo "Done."
 	else
 		echo "You do not appear to have an unpacked super image open."
 	fi
