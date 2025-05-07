@@ -4,7 +4,7 @@
 		<title>stene.xyz</title>
 		<link href="/styles/global.css" rel="stylesheet" type="text/css">
 		<style>
-			ol {
+			ol, ul {
 				max-width: 50vw
 				text-align: left; 
 				margin-left: auto; 
@@ -15,59 +15,64 @@
 	<body style="overflow: scroll">
 		<div class="content animate-opacity">
 			<h1>stene.xyz</h1>
-			<h2 class="purple" id="tagline">TCL Flip 2/Flip Go Guide (QK6J Firmware Version)</h2>
+			<h2 class="purple" id="tagline">TCL Flip 2/Flip Go Guide</h2>
+			<a href="development.html">technical info and instructions</a>
 			<br><br><hr><br><br>
-
-			<h2>Special Thanks</h2>
-			<b>neutronscott:</b> For finding the method to patch boot images<br>
-			<b>Yiannis128:</b> For pointing me to the thread mentioning adbio and providing clean files for QK6J<br>
-			<b>VictorBruson:</b> For being the first to share adbio with the community as a whole
-			<br><br>
-
-			<h2>Root + ADB</h2>
-			This guide assumes you're on Linux. If not, create a bootable USB stick and do the jailbreak from there. 
-
-			<h3>Part 1: Preparation</h3>
+			
+			<h2>Root + ADB Guide (windows)</h2>
+			<h3>Step 1: Patching the Boot Process</h3>
 			<ol>
 				<li>Download the following files:<br>
-					<a href="https://github.com/bkerler/mtkclient">mtkclient</a><br>
-					<a href="">patched boot.img - place this in the mtkclient folder.</a> TODO: add file</li>
-				<li>Install fastboot, libusb, and fuse2 from your distro's package manager. Also make sure Python is up to date.</li>
-				<li>In the mtkclient folder, run "python3 -m pip install -r requirements.txt"<li>
-				<li>Backup your device by running "mkdir backup; sudo python3 mtk.py rl backup" - this will take a while but it is important! Copy backup files elsewhere if running from a Live USB stick.</li> 
+					<a href="autobooter.exe">autobooter.exe</a><br>
+					<a href="patched/boot.img">boot.img (TODO: upload)</a><br>
+					<a href="https://developer.android.com/tools/releases/platform-tools">platform-tools</a></li>
+				<li>Ensure your device is on firmware versions KEFH or QK6J</li>
+				<li>Power off your device and remove the battery</li>
+				<li>Run autobooter.exe</li>
+				<li>Insert the battery into your device and plug it into the computer</li>
+				<li>Open a command prompt window inside your platform-tools folder</li>
+				<li>Run the command "fastboot.exe flashing unlock" - this will wipe all user data! Confirm on the phone itself.</li>
+				<li>Run the command "fastboot.exe flash boot boot.img"</li>
+				<li>Run the command "fastboot.exe reset"</li>
 			</ol>
-
-			<h3>Part 2: Jailbreaking</h3>
+			<h3>Step 2: Setting up Magisk and unlocking ADB</h3>
 			<ol>
-				<li>Reboot the device into fastboot mode by running "sudo python3 mtk.py payload --metamode FASTBOOT"</li>
-				<li>Unlock the device for flashing with "fastboot flashing unlock" - this will erase all user data. Advanced users can run "sudo python3 mtk.py da seccfg unlock" to prevent a wipe, but I haven't tested it very much and it may cause issues.</li>
-				<li>Flash the patched boot image with "fastboot flash boot boot.img"</li>
-				<li>Reboot the device and complete initial setup (if required)</li>
-				<li>Open the app list by entering "*#*#217703#*#*" on the home screen</li>
-				<li>Launch Magisk and let it do the final setup<li>
-				<li>Allow it to reboot your device</li>
-				<li>Open Magisk again and dismiss the popup</li>
-				<li>Open the browser and click <a href="https://f-droid.org/repo/io.github.yoshi1123.adbio_4.apk">this link</a> to download adbio</li>
-				<li>Open your notifications and click the downloaded file</li>
-				<li>Allow the browser to install apps, then install adbio</li>
-				<li>Use adbio to enable ADB. TODO: in-depth</li>
-			</ol>
-
-			<h2>Image Patching</h2>
-			<h3>Patched boot.img</h3>
-			Instructions from <a href="https://github.com/neutronscott/flip2/blob/main/create-boot">neutronscott's script</a>
-			<ol>
-				<li>Download Magisk from <a href="https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk">here</a></li>
-				<li>Unzip Magisk with "mkdir -p magisk; cd magisk; unzip -q ../Magisk-v27.0.apk; cd .."</li>
-				<li>Make magiskboot executable with "chmod +x lib/x86_64/libmagiskboot.so"</li>
-				<li>Extract your boot.img with "mkdir -p</li>
+				<li>With your device re-set up and on the homescreen, enter "*#*#217703#*#*" and select "Magisk"</li>
+				<li>Allow Magisk to go through with it's initial setup and reboot your device.</li>
+				<li>Open the browser and navigate to <a href="https://f-droid.org/packages/io.github.yoshi1123.adbio/">https://f-droid.org/packages/io.github.yoshi1123.adbio/</a> (more easily accessed by searching for "adbio fdroid"</li>
+				<li>Scroll down and click the first "DOWNLOAD APK" option</li>
+				<li>In your devices notifications, click the app, allow the browser to install apps, then install the app.</li>
+				<li>TODO: what next?</li>
 			</ol>
 			
-			<h3>Patched super.img (vendor, system, product partitions)</h3>
-
-			<h2>Article Changelog</h2>
-			<b>May 3, 2025: Added updated instructions for most recent firmware version.
-			<b>September 11, 2024:</b> Added (apparently important) sections about flashing super.img and disabling dm-verity.
+			<h2>Linux Guide (linux)</h2>
+			Linux users can use the <a href="flip2.sh">all-in-one script</a> to interact with their device. Simply install platform-tools, libusb, python3/pip3, and fuse.<br>
+			<h3>Setting up AIO Script</h3>
+			<ol>
+				<li>Install the required packages with your distrobution's package manager. Package names differ between distros.</li>
+				<li>Download the script to a new empty directory</li>
+				<li>Run "./flip2.sh setup" to download and install the other necessary tools</li>
+				<li>Run "./flip2.sh backup" to make a copy of all data on the phone</li>
+			</ol>
+			<h3>Unlocking the device for flashing (without erasing data)</h3>
+			Run "./flip2.sh device flashing-unlock"<br>
+			<h3>Patching a boot image</h3>
+			<ol>
+				<li>Run "./flip2.sh boot patch" to patch the backed up boot image</li>
+				<li>Run "./flip2.sh boot flash" to flash the new boot image</li>
+			</ol>
+			<h3>Modifying system, vendor, and product partitions</h3>
+			<ol>
+				<li>Run "./flip2.sh super unpack" to unpack these partitions</li>
+				<li>(As root) make your modifications to the buildsuper/unpacked/[system,vendor,product] directories</li>
+				<li>Run "./flip2.sh super repack to build a new super.img file</li>
+				<li>Run "./flip2.sh super flash" to flash your new super.img</li>
+			</ol>
+			<h3>(experimental) Installing a Generic System Image (GSI) file</h3>
+			I've had small amounts of success running Android 11 System as System (SaS) GSI ROMs. None have booted, but some have come close.<br>
+			To insert a GSI ROM, run "./flip2.sh super install-gsi [path to GSI]", then "./flip2.sh super flash"<br>
+			
+			<h2>Common Mods</h2>
 		</div>
 	</body>
 </html>
