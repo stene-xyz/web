@@ -7,172 +7,151 @@
   </head>
   <body>
     <div class="content animate-opacity">
-      <h1>stene.xyz</h1>
-      <h2 class="purple" id="tagline">a fan of noscript, are we?</h2>
-      <button onclick="switchPane('projects')">projects</button> <button onclick="blog()">blog</button> <button onclick="switchPane('contact')">contact</button> <button onclick="github()">github</button> <button onclick="resume()">resume</button>
-      <br><hr>
-
-      <div class="content-pane animate-opacity" id="contact">
-        <h2>contact me</h2>
-        <div class="project-showcase"> 
-          <b>email</b><br><br>
-          <a href="mailto:johnny@stene.xyz">johnny@stene.xyz</a>
-        </div> 
-        <div class="project-showcase"> 
-          <b>phone</b><br><br>
-          <a href="tel:7805049202">+1 (780) 504-9202</a>
-        </div> 
-        <div class="project-showcase"> 
-            <b>twitter</b><br><br>
-            <a href="https://twitter.com/jhonnystene">jhonnystene</a>
-        </div>
-        <div class="project-showcase"> 
-            <b>discord</b><br><br>
-            johnnystene
-        </div>
-         
-      </div>
-
-      <div class="content-pane animate-opacity" id="projects">
-        <h2>project showcase</h2>
-        <button onclick="switchPane('projects-all')">view all</button><br><br>
-        <div class="project-showcase"> 
-          <b>drop</b><br>
-          48-hour file sharing<br><br>
-          <a href="https://drop.stene.xyz">link</a> <a href="https://stenexyz.itch.io/drop-client">desktop client</a>
-        </div> 
-        <div class="project-showcase"> 
-          <b>scribe</b><br>
-          static page generator<br><br>
-          <a href="/scribe">link</a>    
-        </div>
-        <div class="project-showcase"> 
-          <b>BSODView</b><br>
-          BSOD data viewer<br><br>
-          <a href="https://github.com/stene-xyz/BSODView/releases/">download</a> | <a href="https://github.com/stene-xyz/BSODView">source code</a>
-        </div> 
-        <div class="project-showcase"> 
-          <b>XYZDownloadManager</b><br>
-          download manager<br><br>
-          <a href="https://github.com/stene-xyz/XYZDownloadManager/releases/">download</a> | <a href="https://github.com/stene-xyz/XYZDownloadManager">source code</a>    
+      <div id="homepage-header">
+        <div class="header-text">
+          <h1>stene.xyz</h1>
+          <h2 class="purple" id="tagline">a fan of noscript, are we?</h2>
+          <hr>
+          <div class="header-buttons">
+            <button onclick="switchPane('projects')">projects</button>
+            <button onclick="blog()">blog</button>
+            <button onclick="github()">github</button>
+            <button onclick="switchPane('about')">about me</button>
+          </div>
         </div>
       </div>
       
-      <div class="content-pane animate-opacity" id="projects-all">
-        <h2>all projects</h2>
-        <button onclick="switchPane('projects')">back to showcase</button><br><br>
-        <h2 class="purple">websites</h2><br>
-    
-    <div class="project-showcase"> 
-        <b>stene.xyz</b><br>
-        you are here<br><br>
-        <a href="https://stene.xyz">link</a>    
-    </div>
+      <div id="pages">
+        <div class="content-pane" id="about">
+          <h2>about me</h2>
+          <button onclick="switchPane('none')">back</button><br><br>
 
-    <div class="project-showcase"> 
-        <b>bestbrowser.org</b><br>
-        internet explorer fan page<br><br>
-        <a href="http://bestbrowser.org">link</a>    
-    </div>
+          <div class="business-card">
+            <img src="bcard.png" style="height: 30vh; box-shadow: 0px 0px 5px black;" />
+            <p style="color: #444444;">my business card.<br>you can also contact me over discord @johnnystene, or bluesky @stene.xyz</p>
+          </div>
 
-    <div class="project-showcase"> 
-        <b>snowbound.xyz</b><br>
-        more personal website<br><br>
-        <a href="https://snowbound.xyz">link</a>    
-    </div>
+          <div class="about-content">
+            <h2>about me</h2>
+            I'd describe myself as a technology enthusiast. I've found myself messing with most modern technology bubbles fairly early into their lifecycle - 
+            I got in early-ish with cryptocurrency (but didn't make much money out of it), was big on IoT (until seeing a barbeque that needed software updates), 
+            and was years ahead of the current AI hype with my <a href="https://github.com/jhonnystene/Copilot">Copilot</a> self-driving software (which does, in 
+            semi-rare cases, work!). <br><br>
 
-    <div class="project-showcase"> 
-        <b>fredrickinthe.cloud</b><br>
-        RIP Fredrick, gone but not forgotten<br><br>
-        <a href="https://fredrickinthe.cloud">link</a>    
-    </div>
+            I've always wondered how things worked and what led to them, so naturally I love open source. I'm a huge fan of the free Unix-likes in general, but I 
+            love OpenBSD. I have gone on (and will continue to go on) long rants about the fragmentation of Linux as an ecosystem compared to the sensible defaults
+            and "single-project" nature of OpenBSD. <br><br>
 
-    <h2 class="purple">utilities</h2><br>
-    <div class="project-showcase"> 
-        <b>drop</b><br>
-        free 48-hour file sharing<br><br>
-        <a href="https://drop.stene.xyz">link</a> <a href="https://stenexyz.itch.io/drop-client">desktop client</a>
-    </div>
+            After having to do as much tech support as I have, I'm of the strong belief that operating systems and large software packages should still be coming with 
+            extensive documentation, and that it should not be possible to do near anything on them without reading said documentation. They don't need to be hard to 
+            use, they don't need to be complex, but they need to make the user read the manual. I've learned that people will do anything to avoid paying attention to
+            what the computer is very clearly telling them to do if they feel the machine is at all foreign. I'm guilty of this as well.<br><br>
 
-    <div class="project-showcase"> 
-        <b>scribe</b><br>
-        you are here<br><br>
-        <a href="/scribe">link</a>    
-    </div>
+            I'm a big advocate for backups and cybersecurity. I've seen people pay thousands to clean up after a dead hard drive or a well-placed fake download button. 
+            I take a decent interest in cybersecurity. I've reverse-engineered malware, found vulnerabilities in the devices I use daily, and every so often poke into
+            suspiciously cheap devices to see <a href="https://www.pcmag.com/news/thousands-of-android-devices-come-with-a-hidden-backdoor">just what they may be hiding!</a><br><br>
 
-    <div class="project-showcase"> 
-      <b>TCL Flip 2</b><br>
-      information on jailbreaking the TCL Flip 2/Go<br><br>
-      <a href="https://stene.xyz/flip2/">link</a>
-    </div>
+            I tried starting a cell phone company. It didn't go well, but I hope to finish and release it as open source hardware one day. To this day I mess with the
+            prototype, working on the software side of things every so often. It hasn't left my desk since 2020, and it won't until this damned thing is finished.<br><br>
 
-    <div class="project-showcase"> 
-        <b>BSODView</b><br>
-        small tool for easily viewing BSOD data<br><br>
-        <a href="https://github.com/stene-xyz/BSODView/releases/">download</a> | <a href="https://github.com/stene-xyz/BSODView">source code</a>
-    </div>
+            I like photography. I'm no good at it, I don't have nice equipment (just a $300 eBay DSLR), and I don't really have much to take pictures of, but I like it.<br><br>
 
-    <div class="project-showcase"> 
-        <b>XYZDownloadManager</b><br>
-        tiny .NET 8 download manager<br><br>
-        <a href="https://github.com/stene-xyz/XYZDownloadManager/releases/">download</a> | <a href="https://github.com/stene-xyz/XYZDownloadManager">source code</a>    
-    </div>
+            <h2>about my website</h2>
+            This is where I pretend to run a <i>thriving</i> technology enterprise. I've got a handful of (free!) online services, 
+            the two best being <a href="https://drop.stene.xyz">drop</a>, a free temporary file host, and <a href="/scribe">scribe</a>, a free (permanent) web host.
+            This is where a lot of my bigger projects, experiments, and demos find a home! I've made efforts to reduce it to the big ones - jailbreaks for a flip phone
+            I like, the aforementioned free online services, things like that.<br><br>
 
-    <div class="project-showcase"> 
-        <b>staples-dl</b><br>
-        tool for downloading 3D models from staples.ca<br><br>
-        <a href="https://github.com/stene-xyz/staples-dl">source code</a>    
-    </div>
+            This site actually has a functioning authentication system (it's secure as far as I can tell, but you're welcome to <a href="https://github.com/stene-xyz/web">take
+            a look for any issues.</a> I'll PayPal you $50 if you find any big ones) that's currently only used for scribe - eventually I'll have a full account management page, 
+            some more functionality, maybe even exclusive features for people I think are cool.<br><br>
 
-    <div class="project-showcase"> 
-        <b>ArnariaChat</b><br>
-        proximity text chat for Minecraft servers<br><br>
-        <a href="https://github.com/stene-xyz/ArnariaChat">source code</a>    
-    </div>
-    
-    <h2 class="purple">games</h2><br>
-    <div class="project-showcase"> 
-        <b>Super Stevio 66</b><br>
-        2d platformer<br><br>
-        <a href="/stevio/">link</a> | <a href="https://stenexyz.itch.io/super-stevio-66">download</a> | <a href="https://github.com/jhonnystene/SuperStevio66">source code</a>    
-    </div>
+            This site is also my first use of automated tests! Watching them pass is quite satisfying. I'll have to write tests more often.
+          </div>
 
-    <div class="project-showcase"> 
-        <b>Nic Cage Eats Stuff</b><br>
-        ports of the legendary game<br><br>
-        <a href="https://github.com/jhonnystene/NicCageEatsStuff">link</a> | <a href="https://stenexyz.itch.io/nic-cage-eats-stuff">download</a> | <a href="https://github.com/jhonnystene/NicCageEatsStuff">source code</a>    
-    </div> 
+        </div>
 
-    <div class="project-showcase"> 
-        <b>sandbox</b><br>
-        calming sandbox game<br><br>
-        <a href="/sandbox/">link</a> | <a href="https://github.com/jhonnystene/sandbox">source code</a>    
-    </div>
-    
-    <h2 class="purple">memes</h2><br>
-    <div class="project-showcase"> 
-        <b>SCAM token</b><br>
-        the future of finance<br><br>
-        <a href="/scam-token/">link</a>
-    </div>
+        <div class="content-pane" id="projects">
+          <h2>project showcase</h2>
+          <button onclick="switchPane('none')">back</button><br><br>
+          <!--GEN-->
+        </div>
+      </div>
+
+      <div class="footer">
+          site version 3.0-beta<br>
+          <a href="/changelog.html">changelog</a><br>
+          <a href="https://github.com/stene-xyz/web">view source</a><br>
+          <a href="/security.html">security</a>
       </div>
     </div>
-
-    <div class="footer">
-        site version 3.0-beta | <a href="/changelog.html">changelog</a> | <a href="https://github.com/stene-xyz/web">view source code</a> | <a href="/security.html">security</a>
-    </div>
-    
     <script>
       var taglines = ["best viewed at 800x600 in internet explorer 5", "take thy butter knife, and carefully insert it between the sandwich and the VCR", "let's not beat a dead horse when we can beat a live one", "microsoft excel '97 fan page", "it has been [0] days since the last DNS issue", "if you're reading this, the web server was successfully installed", "weaponizing boredom since 2020", "i'll be happy if i can get the system working like it was when i started"]
       document.getElementById("tagline").innerHTML = taglines[Math.floor(Math.random() * taglines.length)];
-    
+      var state = 0;
+
+      var projects_featured = [
+        {
+          "name": "drop",
+          "desc": "48-hour file sharing",
+          "links": [
+            {"display": "link", "link": "https://drop.stene.xyz"},
+            {"display": "desktop client", "link": "https://stenexyz.itch.io/drop-client"}
+          ]
+        },
+        {
+          "name": "scribe",
+          "desc": "static page generator",
+          "links": [
+            {"display": "link", "link": "/scribe"}
+          ]
+        }, 
+        {
+          "name": "BSODView",
+          "desc": "Stop Error data viewer",
+          "links": [
+            {"display": "download", "link": "https://github.com/stene-xyz/BSODView/releases/"},
+            {"display": "source code", "link": "https://github.com/stene-xyz/BSODView"}
+          ]
+        },
+        {
+          "name": "TCP Flip 2",
+          "desc": "information on jailbreaking the TCL Flip 2/Flip Go",
+          "links": [
+            {"display": "link", "link": "https://stene.xyz/flip2/"}
+          ]
+        }
+      ];
+      var projects_html = "";
+      projects_featured.forEach(element => {
+        projects_html += "<div class=\"project-showcase\">\n";
+        projects_html += "<b>" + element["name"] + "</b><br>\n";
+        projects_html += element["desc"] + "<br><br>\n";
+        projects_html += "<div class=\"project-links\">\n";
+        element.links.forEach(link => {
+          projects_html += "<a href=\"" + link["link"] + "\">" + link["display"] + "</a>\n";
+        });
+        projects_html += "</div>\n</div>";
+      });
+
+      document.getElementById("projects").innerHTML = document.getElementById("projects").innerHTML.replace("<!--GEN-->", projects_html);
+
       function switchPane(id) {
+        if(id == "none") {
+          state = 0;
+          window.scrollTo({top: 0, behavior: "smooth"});
+          return;
+        }
+
         var i;
         var x = document.getElementsByClassName("content-pane");
         for (i = 0; i < x.length; i++) {
           x[i].style.display = "none";
         }
         document.getElementById(id).style.display = "block"; 
+
+        document.getElementById("pages").scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
+        state = 1;
       }
 
       function github() {
@@ -187,7 +166,14 @@
         document.location = "https://stene.xyz/resume/index.html";
       }
 
-      switchPane('projects');
+      window.addEventListener('resize', function(event) {
+          if(state == 1) {
+            document.getElementById("pages").scrollIntoView({block: "start", inline: "nearest"});
+          } else {
+            window.scrollTo({top: 0});
+          }
+      }, true);
+
     </script>
   </body>
 </html>

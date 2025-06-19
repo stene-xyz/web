@@ -1,31 +1,89 @@
+.animate-opacity{
+    animation:opac 0.8s
+}
+@keyframes opac{from{opacity:0} to{opacity:1}}
+@keyframes opac{from{opacity:0} to{opacity:1}}
+
+.purple {
+    color: #D500A5;
+    text-shadow: 0px 0px 5px;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     height: 100vh;
     max-height:100vh;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
-.project-showcase {
-    text-align: left;
-    max-width: 30vw;
-    width: 30vw;
-    border: 2px solid white;
-    box-shadow: 0 0 5px white;
-    border-radius: 10px;
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
-    margin-bottom: 10px;
+
+.content {
+    margin: 0;
+    padding: 0;
 }
 
 .content-pane {
-    height: 60vh;
-    min-height: 60vh;
-    max-height: 60vh;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
     overflow: scroll;
 }
 
-.animate-opacity{
-    animation:opac 0.8s
+.project-showcase {
+    max-width: 256px;
+    width: 100vw;
+    max-height: 300px;
+    height: 100vh;
+
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    border-radius: 10px;
+
+    text-align: left;
+
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    
+    position: relative;
+    overflow: hidden;
+}
+
+.project-links {
+    position: absolute;
+    bottom: -50px;
+    transition: 0.3s;
+}
+
+.project-links a {
+    background-color: #0090c4;
+    color: white;
+    border: 1px solid #0090c4;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.project-showcase:hover .project-links {
+    bottom: 10px;
+}
+
+.footer {
+    position: fixed;
+    bottom: calc(-3.3em);
+    right: 10px;
+    text-align: right;
+    transition: 0.3s;
+    color: #444444;
+}
+.footer:hover {
+    bottom: 10px;
 }
 
 button {
@@ -39,11 +97,33 @@ button {
     font-size: 1.1em;
     text-decoration: underline;
     cursor: pointer;
+    float: right;
+    margin-right: 3vw;
 }
 
-.purple {
-    color: #D500A5;
-    text-shadow: 0px 0px 5px;
+#homepage-header {
+    height: 100vh;
+    position: relative;
 }
 
-@keyframes opac{from{opacity:0} to{opacity:1}}
+#pages {
+    height: 100vh;
+}
+
+.header-text {
+    text-align: left;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    position: absolute;
+    bottom: 5vh;
+}
+
+.header-buttons {
+    height: auto;
+}
+
+.about-content {
+    text-align: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
