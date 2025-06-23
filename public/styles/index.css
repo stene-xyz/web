@@ -42,11 +42,11 @@ body {
 
     border: 2px solid white;
     box-shadow: 0 0 5px white;
-    border-radius: 10px;
+    border-radius: 32px;
 
     text-align: left;
 
-    padding: 10px;
+    padding: 24px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
@@ -63,15 +63,20 @@ body {
 }
 
 .project-links a {
-    background-color: #0090c4;
+    background-color: #171717;
     color: white;
-    border: 1px solid #0090c4;
-    border-radius: 10px;
-    padding: 3px;
+    border: 3px solid #0090c4;
+    border-radius: 32px;
+    padding: 3px 10px;
+    transition: 0.3s;
+}
+
+.project-links a:hover {
+    background-color: #0090c4;
 }
 
 .project-showcase:hover .project-links {
-    bottom: 10px;
+    bottom: 24px;
 }
 
 .footer {
@@ -126,4 +131,12 @@ button {
     text-align: left;
     margin-left: 5vw;
     margin-right: 5vw;
+}
+
+.businesscard-text {
+    color: #444444;
+}
+
+.businesscard-text:hover {
+    content: "my business bard.";
 }
