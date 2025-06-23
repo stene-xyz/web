@@ -27,7 +27,7 @@ app.use(session({
 }));
 app.use(ratelimit({ // Protect against DoS
 	windowMs:1000,
-	max:5
+	max:20
 }));
 app.use(csrf()); // Protect against CSRF
 
