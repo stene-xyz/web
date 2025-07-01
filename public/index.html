@@ -222,12 +222,16 @@
 
       // Make sure everything stays OK when window resizes
       window.addEventListener('resize', function(event) {
-          if(state == 1) {
-            document.getElementById("pages").scrollIntoView({block: "start", inline: "nearest"});
-          } else {
-            window.scrollTo({top: 0});
-          }
+        if(state == 1) {
+          document.getElementById("pages").scrollIntoView({block: "start", inline: "nearest"});
+        } else {
+          window.scrollTo({top: 0});
+        }
       }, true);
+
+      if(screen.orientation.type == "portrait-primary") {
+        location.pathname = "/mobile";
+      }
 
     </script>
   </body>

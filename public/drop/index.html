@@ -33,6 +33,10 @@
 					document.getElementById("selected_file").innerHTML = "no file selected";
 				}
 			}, 100);
+
+			if(screen.orientation.type == "portrait-primary") {
+				location.pathname = "/mobile/drop";
+			}
 		</script>
 	</body>
 </html>

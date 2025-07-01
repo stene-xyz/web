@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>drop 2.0-beta</title>
+	<link rel="stylesheet" type="text/css" href="/styles/global.css">
+	<link rel="stylesheet" type="text/css" href="/styles/mobile.css">
+</head>
+
+<body>
+	<div id="homepage-header">
+		<div class="header-text">
+			<h1>drop<sup>v2</sup></h1>
+			<h2 class="purple">mobile version (beta)</h2>
+			<hr>
+		</div>
+	</div>
+
+	<form action="/drop/upload" method="post" enctype="multipart/form-data">
+		<p class="form-border">
+			<input type="file" id="upload_button" name="uploaded">
+			<a>choose file</a><br><br>
+			<span id="selected_file">no file selected</span>
+		</p>
+
+		<button type="submit">upload</button>
+	</form>
+
+	<br><br>
+
+	<a href="/ToS.txt">Terms of Service</a><br><br>
+	<a href="privacy.txt">Privacy Policy</a>
+
+	<script>
+		setInterval(() => {
+			if (document.getElementById("upload_button").files.length == 1) {
+				document.getElementById("selected_file").innerHTML = document.getElementById("upload_button").files[0].name;
+			} else {
+				document.getElementById("selected_file").innerHTML = "no file selected";
+			}
+		}, 100);
+	</script>
+</body>
+
+</html>
