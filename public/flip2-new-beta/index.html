@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>stene.xyz</title>
+		<link href="/styles/global.css" rel="stylesheet" type="text/css">
+		<style>
+			ol, ul {
+				max-width: 50vw
+				text-align: left; 
+				margin-left: auto; 
+				margin-right: auto;
+			}
+		</style>
+	</head>
+	<body style="overflow: scroll">
+		<div class="content animate-opacity">
+			<h1>stene.xyz</h1>
+			<h2 class="purple" id="tagline">TCL Flip 2/Flip Go Guide</h2>
+			<a href="development.html">technical info and instructions</a>
+			<br><br><hr><br><br>
+			
+			<h2>Root + ADB Guide (windows)</h2>
+			<h3>Step 1: Patching the Boot Process</h3>
+			<ol>
+				<li>Download the following files:<br>
+					<a href="autobooter.exe">autobooter.exe</a><br>
+					<a href="patched/boot.img">boot.img (TODO: upload)</a><br>
+					<a href="https://developer.android.com/tools/releases/platform-tools">platform-tools</a></li>
+				<li>Ensure your device is on firmware versions KEFH or QK6J</li>
+				<li>Power off your device and remove the battery</li>
+				<li>Run autobooter.exe</li>
+				<li>Insert the battery into your device and plug it into the computer</li>
+				<li>Open a command prompt window inside your platform-tools folder</li>
+				<li>Run the command "fastboot.exe flashing unlock" - this will wipe all user data! Confirm on the phone itself.</li>
+				<li>Run the command "fastboot.exe flash boot boot.img"</li>
+				<li>Run the command "fastboot.exe reset"</li>
+			</ol>
+			<h3>Step 2: Setting up Magisk and unlocking ADB</h3>
+			<ol>
+				<li>With your device re-set up and on the homescreen, enter "*#*#217703#*#*" and select "Magisk"</li>
+				<li>Allow Magisk to go through with it's initial setup and reboot your device.</li>
+				<li>Open the browser and navigate to <a href="https://f-droid.org/packages/io.github.yoshi1123.adbio/">https://f-droid.org/packages/io.github.yoshi1123.adbio/</a> (more easily accessed by searching for "adbio fdroid"</li>
+				<li>Scroll down and click the first "DOWNLOAD APK" option</li>
+				<li>In your devices notifications, click the app, allow the browser to install apps, then install the app.</li>
+				<li>TODO: what next?</li>
+			</ol>
+			
+			<h2>Linux Guide (linux)</h2>
+			Linux users can use the <a href="flip2.sh">all-in-one script</a> to interact with their device. Simply install platform-tools, libusb, python3/pip3, and fuse.<br>
+			<h3>Setting up AIO Script</h3>
+			<ol>
+				<li>Install the required packages with your distrobution's package manager. Package names differ between distros.</li>
+				<li>Download the script to a new empty directory</li>
+				<li>Run "./flip2.sh setup" to download and install the other necessary tools</li>
+				<li>Run "./flip2.sh backup" to make a copy of all data on the phone</li>
+			</ol>
+			<h3>Unlocking the device for flashing (without erasing data)</h3>
+			Run "./flip2.sh device flashing-unlock"<br>
+			<h3>Patching a boot image</h3>
+			<ol>
+				<li>Run "./flip2.sh boot patch" to patch the backed up boot image</li>
+				<li>Run "./flip2.sh boot flash" to flash the new boot image</li>
+			</ol>
+			<h3>Modifying system, vendor, and product partitions</h3>
+			<ol>
+				<li>Run "./flip2.sh super unpack" to unpack these partitions</li>
+				<li>(As root) make your modifications to the buildsuper/unpacked/[system,vendor,product] directories</li>
+				<li>Run "./flip2.sh super repack to build a new super.img file</li>
+				<li>Run "./flip2.sh super flash" to flash your new super.img</li>
+			</ol>
+			<h3>(experimental) Installing a Generic System Image (GSI) file</h3>
+			I've had small amounts of success running Android 11 System as System (SaS) GSI ROMs. None have booted, but some have come close.<br>
+			To insert a GSI ROM, run "./flip2.sh super install-gsi [path to GSI]", then "./flip2.sh super flash"<br>
+			
+			<h2>Common Mods</h2>
+		</div>
+	</body>
+</html>

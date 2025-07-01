@@ -4,12 +4,6 @@ TODO for 3.0 full release
 Authentication:
 	- Enable deleting users
 
-Drop:
-	- Test implementation
-	- Add files/ path to .gitignore
-	- Create files/ folder if it does not exist
-	- Migrate old static pages
-
 Tests:
 	- Fail on syntax errors in index.js
 	- Renderer: ensure generated .html is correct
