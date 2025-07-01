@@ -1,20 +1,19 @@
-Terms of Service for drop.stene.xyz
+Terms of Service for stene.xyz
 
-Welcome to drop.stene.xyz! These Terms of Service ("Terms") govern your use 
-of the drop.stene.xyz website and services ("Service"), provided by Johnny 
+Welcome to stene.xyz! These Terms of Service ("Terms") govern your use 
+of the stene.xyz website and services ("Service"), provided by Johnny 
 Stene. By using the Service, you agree to these Terms. Please read them 
 carefully.
 
 1. Description of Service
-drop.stene.xyz provides a platform for temporary file sharing. Files 
-uploaded to drop.stene.xyz are available for download for a period of
-48 hours from the time of upload, after which they are automatically 
-deleted.
+stene.xyz provides several online features, including, but not limited to,
+online file hosting, web site hosting, video games, and temporary online file
+hosting.
 
 2. User Responsibilities
 - You must be at least 13 years old to use the Service.
 - You are solely responsible for the content you upload and share using 
-  drop.stene.xyz.
+  stene.xyz.
 
 3. Prohibited Uses
 - You may not use the Service for any illegal or unauthorized purpose. By 
@@ -27,9 +26,12 @@ deleted.
   through officially provided websites, clients, or APIs.
 
 4. Intellectual Property
-Johnny Stene retains all rights, title, and interest in and to the Service,
-including all related intellectual property rights. You may not modify, 
-adapt, translate, or create derivative works based upon the Service.
+The source code for the stene.xyz website and its web-based services is 
+publicly available at https://github.com/stene-xyz/web, or upon request 
+(see Section 9: Contact Us for details). You are free to redistribute 
+and/or modify the code under the terms of the GNU General Public License, 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
 
 5. Disclaimer of Warranties
 The Service is provided "as is" and "as available" without warranties 
@@ -65,5 +67,24 @@ of Alberta, without regard to its conflict of law provisions.
 If you have any questions about these Terms, please contact Johnny Stene at 
 johnny@stene.xyz.
 
-By using drop.stene.xyz, you agree to these Terms of Service. If you do not 
+10. Self-Hosting and Scope of Terms
+This website and its associated Terms and Conditions apply solely to use of 
+the Service as hosted by Johnny Stene at stene.xyz. If you obtain and run a 
+self-hosted instance of the software under the terms of the GNU General Public 
+License v3.0 (or later), these Terms and Conditions do not apply to your use 
+of that self-hosted instance. While you are free to use, modify, and distribute 
+the software as permitted under the GPL, we do not provide warranties, support, 
+or assume any liability for self-hosted versions.
+
+11. Trademarks and Branding
+The names, logos, branding, and domain names associated with stene.xyz are not 
+included under the GPL-3.0 license and may not be used in publicly available 
+instances or derivative works without express written permission. This includes 
+using confusingly similar names or visual branding that may mislead users into 
+believing a self-hosted deployment is affiliated with or officially supported by 
+Johnny Stene.
+
+By using stene.xyz, you agree to these Terms of Service. If you do not 
 agree to these terms, do not use the Service.
+
+Last updated: June 30th, 2025
