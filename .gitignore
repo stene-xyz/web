@@ -131,3 +131,6 @@ dist
 
 # user db
 users/
+
+# dropped files
+files/

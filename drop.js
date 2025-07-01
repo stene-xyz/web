@@ -1,4 +1,3 @@
-const maxFileSize = 1 * 1024 * 1024 * 1024; // 1 GiB
 const fileLife = 172800000; // 48 hours
 const autoDeleteInterval = 60000; // 1 hour
 
@@ -17,22 +16,27 @@ module.exports = {
 					logger.warn("DropFailure", "No file uploaded in Drop upload request");
 				} else {
 					let uploaded = req.files.uploaded;
-					var file_id = Math.floor(Math.random() * 1E16);
-					uploaded.mv(path.join(__dirname, "files", file_id, uploaded.name));
+					let file_id = Math.floor(Math.random() * 1E16);
+					let target_path = path.join(__dirname, "files", `${file_id}`, uploaded.name);
+					uploaded.mv(target_path);
 					req.session.drop_link = `https://stene.xyz/drop/files/${file_id}/${uploaded.name}`;
 					logger.info("DropUpload", "Uploaded file", {"size": uploaded.name});
 				}
+				res.redirect("/drop/uploaded");
 			} catch(e) {
-				req.session.drop_link = "Internal server error";
+				req.session.drop_error = e.message;
 				logger.error("DropFailure", "Error occurred", e);
+				res.redirect("/drop/failure");
 			}
-
-			res.redirect("/drop/uploaded");
 		});
 
 		app.get("/drop/uploaded", (req, res) => {
 			renderer.renderPage("dropUploadSuccess.html", {"{url}":req.session.drop_link}, req, res);
 		});
+
+		app.get("/drop/failure", (req, res) => {
+			renderer.renderPage("dropUploadFailure.html", {"{err}":req.session.drop_error}, req, res);
+		})
 		
 		setInterval(doFileAutodelete, autoDeleteInterval);
 		doFileAutodelete();

@@ -1,0 +1,43 @@
+table, th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #fbff00;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+form {
+    width: 33vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form .form-border {
+    padding: 20px;
+    border: 2px solid #fbff00;
+    border-radius: 10px;
+}
+
+form input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    opacity: 0;
+    width: 33%;
+}
+
+form button {
+    width: 100%;
+    background-color: #171717;
+    padding: 10px;
+    color: white;
+    border: 2px solid #0090c4;
+    border-radius: 10px;
+    font-family: 'Cousine', monospace;
+    transition-duration: 0.2s;
+}
+
+form button:hover {
+    background-color: #0090c4;
+}

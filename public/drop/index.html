@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>drop 2.0-beta</title>
+		<link rel="stylesheet" type="text/css" href="/styles/global.css">
+        <link rel="stylesheet" type="text/css" href="/styles/drop.css">
+	</head>
+	
+	<body>
+		<h1>drop<sup>v2</sup></h1>
+		<h3 class="purple">free 48-hour file storage</h3>
+		<hr><br>
+
+		<p>
+			<form action="/drop/upload" method="post" enctype="multipart/form-data">
+			<p class="form-border">
+				<input type="file" id="upload_button" name="uploaded">
+				<a>drop a file<br>max size is 1GB</a><br><br>
+				<span id="selected_file">no file selected</span>
+			</p>
+			
+			<button type="submit">upload</button>
+			</form>
+		</p>
+		<br><br>
+		By using drop, you agree to the <a href="ToS.txt">Terms of Service</a> and <a href="privacy.txt">Privacy Policy</a>.<br>
+		Help keep drop alive by buying ($1, lifetime purchase w/ free updates) the <a href="https://stenexyz.itch.io/drop-client">Windows client</a>!
+		<script>
+			setInterval(() => {
+				if(document.getElementById("upload_button").files.length == 1) {
+					document.getElementById("selected_file").innerHTML = document.getElementById("upload_button").files[0].name;
+				} else {
+					document.getElementById("selected_file").innerHTML = "no file selected";
+				}
+			}, 100);
+		</script>
+	</body>
+</html>
