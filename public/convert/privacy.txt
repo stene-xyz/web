@@ -1,0 +1,58 @@
+Privacy Policy for stene.xyz/convert
+
+Effective Date: July 3, 2025
+
+Johnny Stene operates the website stene.xyz ("Website") and
+provides the stene.xyz/convert image conversion service ("Service"). 
+This Privacy Policy outlines Johnny Stene's practices regarding 
+the collection, use, and disclosure of personal information when
+you use our Website and Service.
+
+0. Preamble
+stene.xyz/convert is a fully in-browser image conversion tool. This
+means that the image you upload is never transmitted over the internet,
+but rather, your own computer does the image conversion and generates 
+the new file.
+
+1. Information Collected
+Device Information: Certain information about your device may be
+automatically collected when using the service, which may include
+IP addresses, browser types, operating systems, and other 
+relevant information. This information is used to improve the 
+security and quality of the Service.
+
+2. Storage of Information
+Device Information: Device Information may be stored indefinitely
+for the purposes of administering and securing the Service.
+
+3. Sharing of Information
+We do not sell, trade, or otherwise transfer to outside parties 
+your personally identifiable information. However, please note 
+that the servers used to store information are maintained by
+third-party service providers, who may have their own privacy 
+policies and may collect additional information.
+
+We may also release information when it's release is appropriate
+to comply with the law, enforce our site policies, to protect 
+ours or others' rights, property, or safety.
+
+4. Data Security
+We, and our third-party service providers, implement a variety
+of security measures to maintain the safety of your personal
+information when you upload files or access your personal 
+information. However, no method of transmission over the Internet,
+or method of electronic storage, is 100% secure. Therefore, while
+we strive to use reasonable means to protect your personal 
+information, we cannot guarantee its abolute security.
+
+5. Changes to Privacy Policy
+This Privacy Policy may be updated from time to time. You are 
+advised to review this Privacy Policy periodically for any 
+changes.
+
+6. Contact Information
+If you have any questions regarding this Privacy Policy, you 
+may contact Johnny Stene at johnny@stene.xyz.
+
+By using the Website and Service, you consent to this Privacy 
+Policy.

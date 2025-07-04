@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>convert</title>
+		<link rel="stylesheet" type="text/css" href="/styles/global.css">
+        <link rel="stylesheet" type="text/css" href="/styles/convert.css">
+	</head>
+	
+	<body>
+		<div id="canvas_block_message">
+			<h1>convert</h1>
+			<h3 class="purple">local image conversion</h3>
+			<hr><br>
+
+			<h2 style="color: red">hang on!</h2>
+			<img src="/img/canvas_blocked.png" height="64px" /><br><br>
+			your browser is blocking HTML canvas requests. take a look for the <b>picture frame icon</b> at the top of your screen, 
+			and allow the use of canvas image data. i'm not using canvas data to identify your computer. for information on what i 
+			do collect, see the <a href="privacy.txt" class="link">Privacy Policy</a> (you should be reading it anyway!)
+		</div>
+
+		<h1>convert</h1>
+		<h3 class="purple">local image conversion (beta)</h3>
+		<hr><br>
+
+		<p>
+			<form onsubmit="return convert()">
+				<b>convert to: </b>
+				<select id="convert_to">
+					<option value="png">.png</option>
+					<option value="webp">.webp</option>
+					<option value="jpeg">.jpg</option>
+				</select>
+
+				<p class="form-border">
+					<input type="file" id="selected_image" accept="image/*" required>
+					<a id="drop_text">drag your image here<br>(or click for a file picker)</a>
+				</p>
+			</form>
+		</p>
+		<br>
+
+		your images aren't sent anywhere. i can't afford the servers for that.<br><br>
+		<a href="/ToS.txt" class="link">Terms of Service</a> <a href="privacy.txt" class="link">Privacy Policy</a><br><br>
+        
+		<script src="isCanvasBlocked.js"></script>
+		<script>
+
+			function checkCanvasBlock() {
+				console.log("rechecking for canvas access...");
+				document.getElementById("canvas_block_message").style.display = isCanvasBlocked() ? "block" : "none";
+
+				setTimeout(() => {
+					checkCanvasBlock();
+				}, 1000);
+			}
+
+			checkCanvasBlock();
+
+			document.getElementById("selected_image").addEventListener("dragover", (e) => {
+				document.getElementById("drop_text").innerHTML = "<b>conversion technology</b> ready!<br>drop the file!";
+			});
+			document.getElementById("selected_image").addEventListener("change", convert);
+
+			function convert(event) {
+				let file = event.target.files[0];
+				let reader = new FileReader();
+				reader.onload = (e) => {
+					let img = e.target.result;
+					let img_name = document.getElementById("selected_image").files[0].name
+					let image = new Image();
+					image.onload = () => {
+						let canvas = document.createElement("canvas");
+						let ctx = canvas.getContext("2d");
+
+						canvas.width = image.width;
+						canvas.height = image.height;
+						ctx.drawImage(image, 0, 0);
+
+						let format = document.getElementById("convert_to").value;
+						let ext = format == "jpeg" ? "jpg" : format;
+
+						let a = document.createElement("a");
+						a.href = canvas.toDataURL(`image/${format}`);
+						a.download = `converted.${img_name}.${ext}`;
+						a.click();
+						a.remove();
+
+						canvas.remove();
+					};
+					image.src = img;
+				};
+				reader.readAsDataURL(file);
+			}
+
+			/*if(screen.orientation.type == "portrait-primary") {
+				location.pathname = "/mobile/convert";
+			}*/
+		</script>
+	</body>
+</html>

@@ -73,6 +73,7 @@ body {
 
 .project-links a:hover {
     background-color: #0090c4;
+    color: white;
 }
 
 .project-showcase:hover .project-links {

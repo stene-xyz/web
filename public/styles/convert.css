@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 table, th, td {
     padding: 10px;
     text-align: left;
@@ -55,4 +59,10 @@ form button:hover {
 .link:hover {
     background-color: #0090c4;
     color: white;
+}
+
+#canvas_block_message {
+    display: none;
+
+    height: 100vh;
 }
