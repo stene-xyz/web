@@ -129,7 +129,16 @@
       /*
        * Homepage tagline
        */
-      var taglines = ["best viewed at 800x600 in internet explorer 5", "take thy butter knife, and carefully insert it between the sandwich and the VCR", "let's not beat a dead horse when we can beat a live one", "microsoft excel '97 fan page", "it has been [0] days since the last DNS issue", "if you're reading this, the web server was successfully installed", "weaponizing boredom since 2020", "i'll be happy if i can get the system working like it was when i started"]
+      var taglines = [
+        "best viewed at 800x600 in internet explorer 5", 
+        "take thy butter knife, and carefully insert it between the sandwich and the VCR", 
+        "let's not beat a dead horse when we can beat a live one", 
+        "microsoft excel '97 fan page", 
+        "it has been [0] days since the last DNS issue", 
+        "if you're reading this, the web server was successfully installed", 
+        "weaponizing boredom since 2020", 
+        "i'll be happy if i can get the system working like it was when i started"
+      ];
       document.getElementById("tagline").innerHTML = taglines[Math.floor(Math.random() * taglines.length)];
 
       // Track state of homepage (on first page or in sub-page)
@@ -145,6 +154,13 @@
           "links": [
             {"display": "link", "link": "https://drop.stene.xyz"},
             {"display": "beta", "link": "/drop"}
+          ]
+        },
+        {
+          "name": "convert",
+          "desc": "in-browser image converter",
+          "links": [
+            {"display": "link", "link": "/convert"}
           ]
         },
         {
