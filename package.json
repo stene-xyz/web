@@ -16,7 +16,7 @@
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
     "express-rate-limit": "^7.4.1",
-    "express-session": "^1.18.1",
+    "express-session": "^1.18.2",
     "lusca": "^1.7.0",
     "marked": "^14.1.2",
     "sanitize-filename": "^1.6.3",
