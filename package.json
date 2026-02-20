@@ -10,7 +10,7 @@
   "author": "Johnny Stene",
   "license": "GPL-3.0",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "cookie": "^1.0.1",
     "crypto": "^1.0.1",
     "express": "^4.21.2",
